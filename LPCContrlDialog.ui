@@ -22,42 +22,42 @@
         <item>
          <widget class="QPushButton" name="btnSysInitial">
           <property name="text">
-           <string>System Initial</string>
+           <string>系统初始化</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnSysStart">
           <property name="text">
-           <string>System Start</string>
+           <string>系统启动</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnSysPause">
           <property name="text">
-           <string>System Pause</string>
+           <string>系统暂停</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnSysStop">
           <property name="text">
-           <string>System Stop</string>
+           <string>系统停止</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnAlmReset">
           <property name="text">
-           <string>Alm Reset</string>
+           <string>系统异常复位</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnTotal_Rst">
           <property name="text">
-           <string>Total_Rst</string>
+           <string>已检产品数复位</string>
           </property>
          </widget>
         </item>
@@ -82,28 +82,28 @@
         <item>
          <widget class="QPushButton" name="btnRight_Laser">
           <property name="text">
-           <string>R_Laser</string>
+           <string>右激光</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnLeft_Laser">
           <property name="text">
-           <string>L_Laser</string>
+           <string>左激光</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnInitial_Sequence">
           <property name="text">
-           <string>InitSeq_Rst</string>
+           <string>初始化流程复位</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnAuto_Sequence">
           <property name="text">
-           <string>AutoSeq_Rst</string>
+           <string>自动流程复位</string>
           </property>
          </widget>
         </item>
@@ -769,7 +769,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Reset</string>
+            <string>复位</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_PowerOn">
@@ -782,7 +782,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>PowerOn</string>
+            <string>使能</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_setABSRight">
@@ -795,7 +795,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set Right Position</string>
+            <string>设置位置2</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_Home">
@@ -808,7 +808,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Home</string>
+            <string>原点</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_setJOG">
@@ -821,7 +821,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set JOG Speed</string>
+            <string>设置JOG速度</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_setABSLeft">
@@ -834,7 +834,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set Left Position</string>
+            <string>设置位置1</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="lineEdit_setABS">
@@ -883,7 +883,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set ABS Speed</string>
+            <string>设置ABS速度</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_Pause">
@@ -896,7 +896,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Pause</string>
+            <string>暂停</string>
            </property>
           </widget>
           <widget class="QPushButton" name="btnX_Counter_Rst">
@@ -909,7 +909,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Count_Rst</string>
+            <string>运动次数复位</string>
            </property>
           </widget>
          </widget>
@@ -990,7 +990,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Reset</string>
+            <string>复位</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_PowerOn_2">
@@ -1003,7 +1003,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>PowerOn</string>
+            <string>使能</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_setABSRight_2">
@@ -1016,7 +1016,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set Right Position</string>
+            <string>设置位置2</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_Home_2">
@@ -1029,7 +1029,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Home</string>
+            <string>原点</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_setJOG_2">
@@ -1042,7 +1042,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set JOG Speed</string>
+            <string>设置JOG速度</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_setABSLeft_2">
@@ -1055,7 +1055,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set Left Position</string>
+            <string>设置位置1</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="lineEdit_setABS_2">
@@ -1104,7 +1104,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set ABS Speed</string>
+            <string>设置ABS速度</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_Pause_2">
@@ -1117,7 +1117,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Pause</string>
+            <string>暂停</string>
            </property>
           </widget>
           <widget class="QPushButton" name="btnY_Counter_Rst">
@@ -1130,7 +1130,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Count_Rst</string>
+            <string>运动次数复位</string>
            </property>
           </widget>
          </widget>
@@ -1211,7 +1211,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Reset</string>
+            <string>复位</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_PowerOn_3">
@@ -1224,7 +1224,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>PowerOn</string>
+            <string>使能</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_setABSRight_3">
@@ -1237,7 +1237,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set Right Position</string>
+            <string>设置位置2</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_Home_3">
@@ -1250,7 +1250,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Home</string>
+            <string>原点</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_setJOG_3">
@@ -1263,7 +1263,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set JOG Speed</string>
+            <string>设置JOG速度</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_setABSLeft_3">
@@ -1276,7 +1276,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set Left Position</string>
+            <string>设置位置1</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="lineEdit_setABS_3">
@@ -1325,7 +1325,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>set ABS Speed</string>
+            <string>设置ABS速度</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_Pause_3">
@@ -1338,7 +1338,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Pause</string>
+            <string>暂停</string>
            </property>
           </widget>
           <widget class="QPushButton" name="btnZ_Counter_Rst">
@@ -1351,7 +1351,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>Count_Rst</string>
+            <string>运动次数复位</string>
            </property>
           </widget>
          </widget>

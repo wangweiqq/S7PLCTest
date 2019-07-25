@@ -121,6 +121,51 @@ public:
     bool Y_Spare9 = false;
 
     bool Y_Spare10 = false;
+
+    //初始化完成
+    bool Initial_Complete_Lamp = false;
+    //系统运行中
+    bool Sys_Auto_Lamp = false;
+    //系统暂停中
+    bool Sys_Pause_Lamp = false;
+    //系统停止
+    bool Sys_Stop_Lamp = false;
+    //异常复位
+    bool Sys_RST_Lamp = false;
+    bool NOKE_1 = false;
+    bool NOKE_2 = false;
+    bool NOKE_3 = false;
+    bool NOKE_4 = false;
+    bool NOKE_5 = false;
+    bool NOKE_6 = false;
+    bool NOKE_7 = false;
+    bool NOKE_8= false;
+    bool NOKE_9 = false;
+    bool NOKE_10 = false;
+    //Z_当前位置
+    float Z_ActualPosition = 0;
+    //X_当前位置
+    float X_ActualPosition = 0;
+    //Y_当前位置
+    float Y_ActualPosition = 0;
+    //Z_目标位置
+    float Z_TargetPosition = 0;
+    //X_目标位置
+    float X_TargetPosition = 0;
+    //Y_目标位置
+    float Y_TargetPosition = 0;
+    //自动流程
+    uint16_t Auto_Sequence = 0;
+    //初始化流程
+    uint16_t Initial_Sequence = 0;
+    //X_运动次数
+    uint16_t X_Counter = 0;
+    //Y_运动次数
+    uint16_t Y_Counter = 0;
+    //Z_运动次数
+    uint16_t Z_Counter = 0;
+    //产品信息
+    uint32_t Product_Information = 0;
 };
 Q_DECLARE_METATYPE(PLCState)
 

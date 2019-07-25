@@ -168,9 +168,18 @@ void PLC_S7::run()
 }
 void PLC_S7::ParsePLC(){
     mutex.lock();
-    byte data_array[11] = {0};
+    byte data_array[12] = {0};
     int size = sizeof(data_array);
     ReadData(16, 0, size, data_array);
+    float fdata_array[6]= {0};
+    size = sizeof(fdata_array);
+    ReadData(11, 0, size, fdata_array);
+    uint16_t sdata_array[5] = {0};
+    size = sizeof(sdata_array);
+    ReadData(11, 22, size, sdata_array);
+    uint32_t idata = 0;
+    size = sizeof(idata);
+    ReadData(11, 34, size, &idata);
 //    setDB16_0(data_array[0]);
     mutex.unlock();
 
@@ -264,7 +273,55 @@ void PLC_S7::ParsePLC(){
     state.Y_Spare8 =            (data_array[9] & BIT6) != 0;
     state.Y_Spare9 =            (data_array[9] & BIT7) != 0;
 
-    state.Y_Spare10 =           (data_array[10] & BIT0) != 0;
+    state.Y_Spare10 =           (data_array[10] & BIT0) != 0;    
+    //初始化完成
+    state.Initial_Complete_Lamp =(data_array[10] & BIT1) != 0;
+    //系统运行中
+    state.Sys_Auto_Lamp =       (data_array[10] & BIT2) != 0;
+    //系统暂停中
+    state.Sys_Pause_Lamp =      (data_array[10] & BIT3) != 0;
+    //系统停止
+    state.Sys_Stop_Lamp =       (data_array[10] & BIT4) != 0;
+    //异常复位
+    state.Sys_RST_Lamp =        (data_array[10] & BIT5) != 0;
+    state.NOKE_1 =              (data_array[10] & BIT6) != 0;
+    state.NOKE_2 =              (data_array[10] & BIT7) != 0;
+
+    state.NOKE_3 =              (data_array[11] & BIT0) != 0;
+    state.NOKE_4 =              (data_array[11] & BIT1) != 0;
+    state.NOKE_5 =              (data_array[11] & BIT2) != 0;
+    state.NOKE_6 =              (data_array[11] & BIT3) != 0;
+    state.NOKE_7 =              (data_array[11] & BIT4) != 0;
+    state.NOKE_8=               (data_array[11] & BIT5) != 0;
+    state.NOKE_9 =              (data_array[11] & BIT6) != 0;
+    state.NOKE_10 =             (data_array[11] & BIT7) != 0;
+
+
+
+    //Z_当前位置
+    state.Z_ActualPosition = qToLittleEndian<float>(fdata_array[0]);
+    //X_当前位置
+    state.X_ActualPosition = qToLittleEndian<float>(fdata_array[1]);
+    //Y_当前位置
+    state.Y_ActualPosition = qToLittleEndian<float>(fdata_array[2]);
+    //Z_目标位置
+    state.Z_TargetPosition = qToLittleEndian<float>(fdata_array[3]);
+    //X_目标位置
+    state.X_TargetPosition = qToLittleEndian<float>(fdata_array[4]);
+    //Y_目标位置
+    state.Y_TargetPosition = qToLittleEndian<float>(fdata_array[5]);
+    //自动流程
+    state.Auto_Sequence = qToLittleEndian<quint16>(sdata_array[0]);
+    //初始化流程
+    state.Initial_Sequence = qToLittleEndian<quint16>(sdata_array[1]);
+    //X_运动次数
+    state.X_Counter = qToLittleEndian<quint16>(sdata_array[2]);
+    //Y_运动次数
+    state.Y_Counter = qToLittleEndian<quint16>(sdata_array[3]);
+    //Z_运动次数
+    state.Z_Counter = qToLittleEndian<quint16>(sdata_array[4]);
+    //产品信息
+    state.Product_Information = qToLittleEndian<quint32>(idata);
 //    myclass.isflag = true;
 //    emit myTest(myclass);
 //    QVariant DataVar;
@@ -351,27 +408,27 @@ void PLC_S7::ParsePLC(){
 }
 //////////////////////////////////////////////////////////////////////
 void PLC_S7::onSetJOG1(float data){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_JOG_Speed,this,data);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetJOG1"<<":data = "<<data;
 }
 void PLC_S7::onPowerOn1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_PowerOn,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPowerOn1";
 }
 void PLC_S7::onReset1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_Reset_1,this);
     this->Push(new PLCCommand(func));
@@ -381,36 +438,36 @@ void PLC_S7::onReset1(){
     qDebug()<<"PLC_S7::onReset1";
 }
 void PLC_S7::onPause1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_Pause_1,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPause1";
 }
 void PLC_S7::onPause1_2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_Pause_2,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPause1_2";
 }
 void PLC_S7::onPowerOff1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_PowerOff,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPowerOff1";
 }
 void PLC_S7::onHome1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_Home_1,this);
     this->Push(new PLCCommand(func));
@@ -426,18 +483,18 @@ void PLC_S7::onHome1_2(){
     qDebug()<<"PLC_S7::onHome1_2";
 }
 void PLC_S7::onSetABS1(float data){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_ABS_Speed,this,data);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetABS1";
 }
 void PLC_S7::onJOGPlus1_1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_JOGPlus_1,this);
     this->Push(new PLCCommand(func));
@@ -450,9 +507,9 @@ void PLC_S7::onJOGPlus1_2(){
     qDebug()<<"PLC_S7::onJOGPlus1_2";
 }
 void PLC_S7::onJOGMinus1_1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_JOGMinus_1,this);
     this->Push(new PLCCommand(func));
@@ -465,18 +522,18 @@ void PLC_S7::onJOGMinus1_2(){
     qDebug()<<"PLC_S7::onJOGMinus1_2";
 }
 void PLC_S7::onSetArray1(QVector<float> vec){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::setArray,this,vec);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetArray1";
 }
 void PLC_S7::onABSLeft1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_ABSLeft_1,this);
     this->Push(new PLCCommand(func));
@@ -492,9 +549,9 @@ void PLC_S7::onABSLeft1_2(){
     qDebug()<<"PLC_S7::onABSLeft1_2";
 }
 void PLC_S7::onABSRight1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_ABSRight_1,this);
     this->Push(new PLCCommand(func));
@@ -510,18 +567,18 @@ void PLC_S7::onABSRight1_2(){
     qDebug()<<"PLC_S7::onABSRight1_2";
 }
 void PLC_S7::onSetABSLeft1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_SetCurPosLeft,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetABSLeft1";
 }
 void PLC_S7::onSetABSRight1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_SetCurPosRight,this);
     this->Push(new PLCCommand(func));
@@ -529,27 +586,27 @@ void PLC_S7::onSetABSRight1(){
 }
 //////////////////////////2///////////////////////////////
 void PLC_S7::onSetJOG2(float data){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_JOG_Speed,this,data);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetJOG2"<<",data = "<<data;
 }
 void PLC_S7::onPowerOn2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_PowerOn,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPowerOn2";
 }
 void PLC_S7::onReset2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_Reset_1,this);
     this->Push(new PLCCommand(func));
@@ -559,36 +616,36 @@ void PLC_S7::onReset2(){
     qDebug()<<"PLC_S7::onReset2";
 }
 void PLC_S7::onPause2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_Pause_1,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPause2";
 }
 void PLC_S7::onPause2_2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_Pause_2,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPause2_2";
 }
 void PLC_S7::onPowerOff2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_PowerOff,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPowerOff2";
 }
 void PLC_S7::onHome2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_Home_1,this);
     this->Push(new PLCCommand(func));
@@ -604,18 +661,18 @@ void PLC_S7::onHome2_2(){
     qDebug()<<"PLC_S7::onHome2_2";
 }
 void PLC_S7::onSetABS2(float data){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_ABS_Speed,this,data);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetABS2"<<",data = "<<data;
 }
 void PLC_S7::onJOGPlus2_1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_JOGPlus_1,this);
     this->Push(new PLCCommand(func));
@@ -628,9 +685,9 @@ void PLC_S7::onJOGPlus2_2(){
     qDebug()<<"PLC_S7::onJOGPlus2_2";
 }
 void PLC_S7::onJOGMinus2_1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_JOGMinus_1,this);
     this->Push(new PLCCommand(func));
@@ -643,18 +700,18 @@ void PLC_S7::onJOGMinus2_2(){
     qDebug()<<"PLC_S7::onJOGMinus2_2";
 }
 void PLC_S7::onSetArray2(QVector<float> vec){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::setArray,this,vec);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetArray2";
 }
 void PLC_S7::onABSLeft2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_ABSLeft_1,this);
     this->Push(new PLCCommand(func));
@@ -670,9 +727,9 @@ void PLC_S7::onABSLeft2_2(){
     qDebug()<<"PLC_S7::onABSLeft2_2";
 }
 void PLC_S7::onABSRight2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_ABSRight_1,this);
     this->Push(new PLCCommand(func));
@@ -688,18 +745,18 @@ void PLC_S7::onABSRight2_2(){
     qDebug()<<"PLC_S7::onABSRight2_2";
 }
 void PLC_S7::onSetABSLeft2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_SetCurPosLeft,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetABSLeft2";
 }
 void PLC_S7::onSetABSRight2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_SetCurPosRight,this);
     this->Push(new PLCCommand(func));
@@ -707,27 +764,27 @@ void PLC_S7::onSetABSRight2(){
 }
 //////////////////////////3///////////////////////////////
 void PLC_S7::onSetJOG3(float data){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_JOG_Speed,this,data);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetJOG3";
 }
 void PLC_S7::onPowerOn3(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_PowerOn,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPowerOn3";
 }
 void PLC_S7::onReset3(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_Reset_1,this);
     this->Push(new PLCCommand(func));
@@ -737,36 +794,36 @@ void PLC_S7::onReset3(){
     qDebug()<<"PLC_S7::onReset3";
 }
 void PLC_S7::onPause3(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_Pause_1,this);
     this->Push(new PLCCommand(func));
      qDebug()<<"PLC_S7::onPause3";
 }
 void PLC_S7::onPause3_2(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_Pause_2,this);
     this->Push(new PLCCommand(func));
      qDebug()<<"PLC_S7::onPause3_2";
 }
 void PLC_S7::onPowerOff3(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_PowerOff,this);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onPowerOff3";
 }
 void PLC_S7::onHome3(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_Home_1,this);
     this->Push(new PLCCommand(func));
@@ -782,18 +839,18 @@ void PLC_S7::onHome3_2(){
     qDebug()<<"PLC_S7::onHome3_2";
 }
 void PLC_S7::onSetABS3(float data){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_ABS_Speed,this,data);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetABS3";
 }
 void PLC_S7::onJOGPlus3_1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_JOGPlus_1,this);
     this->Push(new PLCCommand(func));
@@ -806,9 +863,9 @@ void PLC_S7::onJOGPlus3_2(){
     qDebug()<<"PLC_S7::onJOGPlus3_2";
 }
 void PLC_S7::onJOGMinus3_1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_JOGMinus_1,this);
     this->Push(new PLCCommand(func));
@@ -821,18 +878,18 @@ void PLC_S7::onJOGMinus3_2(){
     qDebug()<<"PLC_S7::onJOGMinus3_2";
 }
 void PLC_S7::onSetArray3(QVector<float> vec){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::setArray,this,vec);
     this->Push(new PLCCommand(func));
     qDebug()<<"PLC_S7::onSetArray3";
 }
 void PLC_S7::onABSLeft3(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_ABSLeft_1,this);
     this->Push(new PLCCommand(func));
@@ -848,9 +905,9 @@ void PLC_S7::onABSLeft3_2(){
     qDebug()<<"PLC_S7::onABSLeft3_2";
 }
 void PLC_S7::onABSRight3(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_ABSRight_1,this);
     this->Push(new PLCCommand(func));
@@ -866,18 +923,18 @@ void PLC_S7::onABSRight3_2(){
     qDebug()<<"PLC_S7::onABSRight3_2";
 }
 void PLC_S7::onSetABSLeft3(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_SetCurPosLeft,this);
     this->Push(new PLCCommand(func));
      qDebug()<<"PLC_S7::onSetABSLeft3";
 }
 void PLC_S7::onSetABSRight3(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_SetCurPosRight,this);
     this->Push(new PLCCommand(func));
@@ -885,9 +942,9 @@ void PLC_S7::onSetABSRight3(){
 }
 //////////////////////////////////////////////////////////////////////
 void PLC_S7::onSysInitial1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Sys_Initial_1,this);
     this->Push(new PLCCommand(func));
@@ -900,9 +957,9 @@ void PLC_S7::onSysInitial2(){
     qDebug()<<"PLC_S7::onSysInitial2";
 }
 void PLC_S7::onSysStart1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Sys_Start_1,this);
     this->Push(new PLCCommand(func));
@@ -915,9 +972,9 @@ void PLC_S7::onSysStart2(){
     qDebug()<<"PLC_S7::onSysStart2";
 }
 void PLC_S7::onSysPause(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Sys_Pause_1,this);
     this->Push(new PLCCommand(func));
@@ -927,9 +984,9 @@ void PLC_S7::onSysPause(){
     qDebug()<<"PLC_S7::onSysPause";
 }
 void PLC_S7::onSysStop1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Sys_Stop_1,this);
     this->Push(new PLCCommand(func));
@@ -942,9 +999,9 @@ void PLC_S7::onSysStop2(){
     qDebug()<<"PLC_S7::onSysStop2";
 }
 void PLC_S7::onSysAlmReset1(){
-    if(!AllowCmdPLC()){
-        return;
-    }
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
     std::function<void()> func;
     func = std::bind(&PLC_S7::Sys_AlmReset_1,this);
     this->Push(new PLCCommand(func));
@@ -955,6 +1012,120 @@ void PLC_S7::onSysAlmReset2(){
     func2 = std::bind(&PLC_S7::Sys_AlmReset_2,this);
     this->Push(new PLCCommand(func2));
     qDebug()<<"PLC_S7::onSysAlmReset2";
+}
+void PLC_S7::onSysSpare1(){
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Sys_Spare1_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Sys_Spare1_2,this);
+    this->Push(new PLCCommand(func2));
+    qDebug()<<"PLC_S7::onSysSpare1";
+}
+void PLC_S7::onSysSpare2(){
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Sys_Spare2_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Sys_Spare2_2,this);
+    this->Push(new PLCCommand(func2));
+    qDebug()<<"PLC_S7::onSysSpare2";
+}
+void PLC_S7::onRightLaser(){
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::RightLaser_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::RightLaser_2,this);
+    this->Push(new PLCCommand(func2));
+    qDebug()<<"PLC_S7::onRightLaser";
+}
+void PLC_S7::onLeftLaser(){
+//    if(!AllowCmdPLC()){
+//        return;
+//    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::LeftLaser_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::LeftLaser_2,this);
+    this->Push(new PLCCommand(func2));
+    qDebug()<<"PLC_S7::onRightLaser";
+}
+void PLC_S7::onInitialSequenceReset(){
+    //    if(!AllowCmdPLC()){
+    //        return;
+    //    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Initial_Sequence_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Initial_Sequence_2,this);
+    this->Push(new PLCCommand(func2));
+}
+void PLC_S7::onAutoSequenceReset(){
+    //    if(!AllowCmdPLC()){
+    //        return;
+    //    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Auto_Sequence_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Auto_Sequence_2,this);
+    this->Push(new PLCCommand(func2));
+}
+void PLC_S7::onX_Counter_Rst(){
+    //    if(!AllowCmdPLC()){
+    //        return;
+    //    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::X_Counter_Rst_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::X_Counter_Rst_2,this);
+    this->Push(new PLCCommand(func2));
+}
+void PLC_S7::onY_Counter_Rst(){
+    //    if(!AllowCmdPLC()){
+    //        return;
+    //    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Y_Counter_Rst_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Y_Counter_Rst_2,this);
+    this->Push(new PLCCommand(func2));
+}
+void PLC_S7::onZ_Counter_Rst(){
+    //    if(!AllowCmdPLC()){
+    //        return;
+    //    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Z_Counter_Rst_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Z_Counter_Rst_2,this);
+    this->Push(new PLCCommand(func2));
+}
+void PLC_S7::onTotal_Rst(){
+    //    if(!AllowCmdPLC()){
+    //        return;
+    //    }
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Total_Rst_1,this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Total_Rst_2,this);
+    this->Push(new PLCCommand(func2));
 }
 ///////////////////////////////////////////////////////////////
 /*命令入队，在线程中写入PLC*/
@@ -1549,6 +1720,156 @@ void PLC_S7::Sys_AlmReset_2(){
     byte data = rdata & ~BIT1;//0x00;
     WriteData(2, 6, 1, &data);
 }
+
+void PLC_S7::Sys_Spare1_1(){
+    qDebug()<<"PLC_S7::Sys_Spare1_1";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata | BIT2;//0x02;
+    WriteData(2, 6, 1, &data);
+}
+void PLC_S7::Sys_Spare1_2(){
+    qDebug()<<"PLC_S7::Sys_Spare1_2";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata ^ BIT2;//0x00;
+    WriteData(2, 6, 1, &data);
+}
+void PLC_S7::Sys_Spare2_1(){
+    qDebug()<<"PLC_S7::Sys_Spare2_1";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata | BIT3;
+    WriteData(2, 6, 1, &data);
+}
+void PLC_S7::Sys_Spare2_2(){
+    qDebug()<<"PLC_S7::Sys_Spare2_2";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata ^ BIT3;//0x00;
+    WriteData(2, 6, 1, &data);
+}
+//左激光
+void PLC_S7::RightLaser_1(){
+    qDebug()<<"PLC_S7::RightLaser_1";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata | BIT4;
+    WriteData(2, 6, 1, &data);
+}
+void PLC_S7::RightLaser_2(){
+    qDebug()<<"PLC_S7::RightLaser_2";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata ^ BIT4;
+    WriteData(2, 6, 1, &data);
+}
+//右激光
+void PLC_S7::LeftLaser_1(){
+    qDebug()<<"PLC_S7::LeftLaser_1";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata | BIT5;
+    WriteData(2, 6, 1, &data);
+}
+void PLC_S7::LeftLaser_2(){
+    qDebug()<<"PLC_S7::LeftLaser_2";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata ^ BIT5;
+    WriteData(2, 6, 1, &data);
+}
+//初始化流程复位
+void PLC_S7::Initial_Sequence_1(){
+    qDebug()<<"PLC_S7::Initial_Sequence_1";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata | BIT6;
+    WriteData(2, 6, 1, &data);
+}
+void PLC_S7::Initial_Sequence_2(){
+    qDebug()<<"PLC_S7::Initial_Sequence_2";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata ^ BIT6;
+    WriteData(2, 6, 1, &data);
+}
+//自动流程复位
+void PLC_S7::Auto_Sequence_1(){
+    qDebug()<<"PLC_S7::Auto_Sequence_1";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata | BIT7;
+    WriteData(2, 6, 1, &data);
+}
+void PLC_S7::Auto_Sequence_2(){
+    qDebug()<<"PLC_S7::Auto_Sequence_2";
+    byte rdata = 0;
+    ReadData(2, 6, 1, &rdata);
+    byte data = rdata ^ BIT7;
+    WriteData(2, 6, 1, &data);
+}
+//X轴运动次数复位
+void PLC_S7::X_Counter_Rst_1(){
+    qDebug()<<"PLC_S7::X_Counter_Rst_1";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata | BIT0;
+    WriteData(2, 7, 1, &data);
+}
+void PLC_S7::X_Counter_Rst_2(){
+    qDebug()<<"PLC_S7::X_Counter_Rst_2";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata ^ BIT0;
+    WriteData(2, 7, 1, &data);
+}
+//Y轴运动次数复位
+void PLC_S7::Y_Counter_Rst_1(){
+    qDebug()<<"PLC_S7::Y_Counter_Rst_1";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata | BIT1;
+    WriteData(2, 7, 1, &data);
+}
+void PLC_S7::Y_Counter_Rst_2(){
+    qDebug()<<"PLC_S7::Y_Counter_Rst_2";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata ^ BIT1;
+    WriteData(2, 7, 1, &data);
+}
+//Z轴运动次数复位
+void PLC_S7::Z_Counter_Rst_1(){
+    qDebug()<<"PLC_S7::Z_Counter_Rst_1";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata | BIT2;
+    WriteData(2, 7, 1, &data);
+}
+void PLC_S7::Z_Counter_Rst_2(){
+    qDebug()<<"PLC_S7::Z_Counter_Rst_2";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata ^ BIT2;
+    WriteData(2, 7, 1, &data);
+}
+//已检测产品数量复位
+void PLC_S7::Total_Rst_1(){
+    qDebug()<<"PLC_S7::Total_Rst_1";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata | BIT3;
+    WriteData(2, 7, 1, &data);
+}
+void PLC_S7::Total_Rst_2(){
+    qDebug()<<"PLC_S7::Total_Rst_2";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata ^ BIT3;
+    WriteData(2, 7, 1, &data);
+}
+
 
 void PLC_S7::setArray(QVector<float> vec){
     int size = vec.size();

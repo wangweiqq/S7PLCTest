@@ -85,6 +85,17 @@ signals:
     void SysStop2();
     void SysAlmReset1();
     void SysAlmReset2();
+
+    void SysSpare1();
+    void SysSpare2();
+    void RightLaser();
+    void LeftLaser();
+    void InitialSequenceReset();
+    void AutoSequenceReset();
+    void X_Counter_Rst();
+    void Y_Counter_Rst();
+    void Z_Counter_Rst();
+    void Total_Rst();
 public slots:
     /*PLC ip地址链接失败*/
     void onPlcLinkChanged(bool IsOk);
@@ -149,7 +160,18 @@ public slots:
     void on_btnSysStop_released();
     void on_btnAlmReset_pressed();
     void on_btnAlmReset_released();
-private:
+
+    void on_btnSystem_Spare1_clicked();
+    void on_btnSystem_Spare2_clicked();
+    void on_btnRight_Laser_clicked();
+    void on_btnLeft_Laser_clicked();
+    void on_btnInitial_Sequence_clicked();
+    void on_btnAuto_Sequence_clicked();
+    void on_btnX_Counter_Rst_clicked();
+    void on_btnY_Counter_Rst_clicked();
+    void on_btnZ_Counter_Rst_clicked();
+    void on_btnTotal_Rst_clicked();
+private:    
     Ui::LPCContrlDialog *ui;
     PLCState mPlcState;
     /*控制PLC button的数组*/

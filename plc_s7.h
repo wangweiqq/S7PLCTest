@@ -110,6 +110,17 @@ public slots:
     void onSysStop2();
     void onSysAlmReset1();
     void onSysAlmReset2();
+
+    void onSysSpare1();
+    void onSysSpare2();
+    void onRightLaser();
+    void onLeftLaser();
+    void onInitialSequenceReset();
+    void onAutoSequenceReset();
+    void onX_Counter_Rst();
+    void onY_Counter_Rst();
+    void onZ_Counter_Rst();
+    void onTotal_Rst();
 private:
     inline void ParsePLC();
     inline int ReadData(int dbNum, int offset, int size, void* val);
@@ -198,6 +209,35 @@ private:
     inline void Sys_Stop_2();
     inline void Sys_AlmReset_1();
     inline void Sys_AlmReset_2();
+
+    inline void Sys_Spare1_1();
+    inline void Sys_Spare1_2();
+    inline void Sys_Spare2_1();
+    inline void Sys_Spare2_2();
+    //左激光
+    inline void RightLaser_1();
+    inline void RightLaser_2();
+    //右激光
+    inline void LeftLaser_1();
+    inline void LeftLaser_2();
+    //初始化流程复位
+    inline void Initial_Sequence_1();
+    inline void Initial_Sequence_2();
+    //自动流程复位
+    inline void Auto_Sequence_1();
+    inline void Auto_Sequence_2();
+    //X轴运动次数复位
+    inline void X_Counter_Rst_1();
+    inline void X_Counter_Rst_2();
+    //Y轴运动次数复位
+    inline void Y_Counter_Rst_1();
+    inline void Y_Counter_Rst_2();
+    //Z轴运动次数复位
+    inline void Z_Counter_Rst_1();
+    inline void Z_Counter_Rst_2();
+    //已检测产品数量复位
+    inline void Total_Rst_1();
+    inline void Total_Rst_2();
 
 //    void setABS(float data);
 //    void setJOG(float data);

@@ -8,7 +8,7 @@ LPCContrlDialog::LPCContrlDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle("LPC控制对话框");
-    ui->PLCReturn->hide();
+//    ui->PLCReturn->hide();
     btnlist.clear();
     btnlist.append(ui->btnSysInitial);
     btnlist.append(ui->btnSysStart);
@@ -172,6 +172,46 @@ void LPCContrlDialog::onPLCState(PLCState state){
     ui-> Y_Spare9->setText( mPlcState.Y_Spare9? "1" : "0");
 
     ui-> Y_Spare10->setText( mPlcState.Y_Spare10? "1" : "0");
+
+    //初始化完成
+    ui-> Initial_Complete_Lamp->setText(mPlcState.Initial_Complete_Lamp? "1" : "0");
+    //系统运行中
+    ui->Auto_Lamp->setText(mPlcState.Sys_Auto_Lamp? "1" : "0");
+    //系统暂停中
+    ui->System_Pause_Lamp->setText(mPlcState.Sys_Pause_Lamp? "1" : "0");
+    //系统停止
+    ui->System_Stop_Lamp->setText(mPlcState.Sys_Stop_Lamp? "1" : "0");
+    //异常复位
+    ui->System_RST_Lamp->setText(mPlcState.Sys_RST_Lamp? "1" : "0");
+    ui-> NOKE1->setText(mPlcState.NOKE_1? "1" : "0");
+    ui-> NOKE2->setText(mPlcState.NOKE_2? "1" : "0");
+    ui-> NOKE3->setText(mPlcState.NOKE_3? "1" : "0");
+    ui-> NOKE4->setText(mPlcState.NOKE_4? "1" : "0");
+    ui-> NOKE5->setText(mPlcState.NOKE_5? "1" : "0");
+    //Z_当前位置
+    ui-> Z_ActualPosition ->setText(QString("%1").arg(mPlcState.Z_ActualPosition));
+    //X_当前位置
+    ui-> X_ActualPosition ->setText(QString("%1").arg(mPlcState.X_ActualPosition));
+    //Y_当前位置
+    ui-> Y_ActualPosition ->setText(QString("%1").arg(mPlcState.Y_ActualPosition));
+    //Z_目标位置
+    ui-> Z_TargetPosition->setText(QString("%1").arg(mPlcState.Z_TargetPosition));
+    //X_目标位置
+    ui-> X_TargetPosition->setText(QString("%1").arg(mPlcState.X_TargetPosition));
+    //Y_目标位置
+    ui-> Y_TargetPosition->setText(QString("%1").arg(mPlcState.Y_TargetPosition));
+    //自动流程
+    ui-> Auto_Sequence->setText(QString("%1").arg(mPlcState.Auto_Sequence));
+    //初始化流程
+    ui-> Initial_Sequence->setText(QString("%1").arg(mPlcState.Initial_Sequence));
+    //X_运动次数
+    ui-> X_Counter->setText(QString("%1").arg(mPlcState.X_Counter));
+    //Y_运动次数
+    ui-> Y_Counter->setText(QString("%1").arg(mPlcState.Y_Counter));
+    //Z_运动次数
+    ui-> Z_Counter->setText(QString("%1").arg(mPlcState.Z_Counter));
+    //产品信息
+    ui-> Product_Information->setText(QString("%1").arg(mPlcState.Product_Information));
 //    QString str1 = QString("Z_PowerOn_Status = %1  Z_PowerOn_Error = %2  Z_Reset_Done = %3  Z_Reset_Error = %4  Z_Home_Done = %5  Z_Home_Error = %6  Z_ABS_Done = %7  Z_ABS_Error = %8\n")
 //                .arg(state.Z_PowerOn_Status).arg(state.Z_PowerOn_Error).arg(state.Z_Reset_Done).arg(state.Z_Reset_Error).arg(state.Z_Home_Done).arg(state.Z_Home_Error).arg(state.Z_ABS_Done).arg(state.Z_ABS_Error);
 //    QString str2 = QString("Z_JOG_inVelocity = %1  Z_JOG_Error = %2  Z_Halt_Done = %3  Z_Halt_Err = %4  Z_Readparam_Vaild = %5  Z_Readparam_Err = %6  Z_Reset_Busy = %7  Z_Home_Busy = %8\n")
@@ -631,4 +671,35 @@ void LPCContrlDialog::on_btnAlmReset_pressed(){
 }
 void LPCContrlDialog::on_btnAlmReset_released(){
     emit SysAlmReset2();
+}
+
+void LPCContrlDialog::on_btnSystem_Spare1_clicked(){
+    emit SysSpare1();
+}
+void LPCContrlDialog::on_btnSystem_Spare2_clicked(){
+    emit SysSpare2();
+}
+void LPCContrlDialog::on_btnRight_Laser_clicked(){
+    emit RightLaser();
+}
+void LPCContrlDialog::on_btnLeft_Laser_clicked(){
+    emit LeftLaser();
+}
+void LPCContrlDialog::on_btnInitial_Sequence_clicked(){
+    emit InitialSequenceReset();
+}
+void LPCContrlDialog::on_btnAuto_Sequence_clicked(){
+    emit AutoSequenceReset();
+}
+void LPCContrlDialog::on_btnX_Counter_Rst_clicked(){
+    emit X_Counter_Rst();
+}
+void LPCContrlDialog::on_btnY_Counter_Rst_clicked(){
+    emit Y_Counter_Rst();
+}
+void LPCContrlDialog::on_btnZ_Counter_Rst_clicked(){
+    emit Z_Counter_Rst();
+}
+void LPCContrlDialog::on_btnTotal_Rst_clicked(){
+    emit Total_Rst();
 }

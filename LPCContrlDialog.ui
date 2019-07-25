@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1014</width>
-    <height>882</height>
+    <width>1309</width>
+    <height>1097</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_101">
+  <layout class="QHBoxLayout" name="horizontalLayout_104">
    <item>
     <widget class="QWidget" name="widget_101" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_100">
+       <layout class="QHBoxLayout" name="horizontalLayout_19">
         <item>
          <widget class="QPushButton" name="btnSysInitial">
           <property name="text">
@@ -52,6 +52,641 @@
           <property name="text">
            <string>Alm Reset</string>
           </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnTotal_Rst">
+          <property name="text">
+           <string>Total_Rst</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_20">
+        <item>
+         <widget class="QPushButton" name="btnSystem_Spare1">
+          <property name="text">
+           <string>Sys_Spare1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSystem_Spare2">
+          <property name="text">
+           <string>Sys_Spare2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRight_Laser">
+          <property name="text">
+           <string>R_Laser</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnLeft_Laser">
+          <property name="text">
+           <string>L_Laser</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnInitial_Sequence">
+          <property name="text">
+           <string>InitSeq_Rst</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnAuto_Sequence">
+          <property name="text">
+           <string>AutoSeq_Rst</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QWidget" name="widget_19" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_21">
+           <item>
+            <widget class="QLabel" name="label_37">
+             <property name="text">
+              <string>初始化完成</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Initial_Complete_Lamp">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QWidget" name="widget_20" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_22">
+           <item>
+            <widget class="QLabel" name="label_38">
+             <property name="text">
+              <string>系统运行中</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Auto_Lamp">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QWidget" name="widget_22" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_24">
+           <item>
+            <widget class="QLabel" name="label_40">
+             <property name="text">
+              <string>系统暂停中</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="System_Pause_Lamp">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QWidget" name="widget_21" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_23">
+           <item>
+            <widget class="QLabel" name="label_39">
+             <property name="text">
+              <string>系统停止</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="System_Stop_Lamp">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QWidget" name="widget_24" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_26">
+           <item>
+            <widget class="QLabel" name="label_42">
+             <property name="text">
+              <string>异常复位</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="System_RST_Lamp">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QWidget" name="widget_23" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_25">
+           <item>
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>NOKE对接信号1</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="NOKE1">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QWidget" name="widget_26" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_28">
+           <item>
+            <widget class="QLabel" name="label_44">
+             <property name="text">
+              <string>NOKE对接信号2</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="NOKE2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QWidget" name="widget_25" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_27">
+           <item>
+            <widget class="QLabel" name="label_43">
+             <property name="text">
+              <string>NOKE对接信号3</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="NOKE3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QWidget" name="widget_29" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_31">
+           <item>
+            <widget class="QLabel" name="label_47">
+             <property name="text">
+              <string>NOKE对接信号4</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="NOKE4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QWidget" name="widget_27" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_29">
+           <item>
+            <widget class="QLabel" name="label_45">
+             <property name="text">
+              <string>NOKE对接信号5</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="NOKE5">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QWidget" name="widget_33" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_35">
+           <item>
+            <widget class="QLabel" name="label_51">
+             <property name="text">
+              <string>X当前位置</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="X_ActualPosition">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QWidget" name="widget_31" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_33">
+           <item>
+            <widget class="QLabel" name="label_49">
+             <property name="text">
+              <string>Y当前位置</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Y_ActualPosition">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QWidget" name="widget_28" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_30">
+           <item>
+            <widget class="QLabel" name="label_46">
+             <property name="text">
+              <string>Z当前位置</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Z_ActualPosition">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QWidget" name="widget_34" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_36">
+           <item>
+            <widget class="QLabel" name="label_52">
+             <property name="text">
+              <string>X目标位置</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="X_TargetPosition">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QWidget" name="widget_32" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_34">
+           <item>
+            <widget class="QLabel" name="label_50">
+             <property name="text">
+              <string>Y目标位置</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Y_TargetPosition">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QWidget" name="widget_30" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_32">
+           <item>
+            <widget class="QLabel" name="label_48">
+             <property name="text">
+              <string>Z目标位置</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Z_TargetPosition">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QWidget" name="widget_102" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_102">
+           <item>
+            <widget class="QLabel" name="label_55">
+             <property name="text">
+              <string>自动流程</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Auto_Sequence">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QWidget" name="widget_35" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_100">
+           <item>
+            <widget class="QLabel" name="label_53">
+             <property name="text">
+              <string>初始化流程</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Initial_Sequence">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QWidget" name="widget_103" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_103">
+           <item>
+            <widget class="QLabel" name="label_56">
+             <property name="text">
+              <string>X运动次数</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="X_Counter">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="4" column="3">
+         <widget class="QWidget" name="widget_36" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_101">
+           <item>
+            <widget class="QLabel" name="label_54">
+             <property name="text">
+              <string>Y运动次数</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Y_Counter">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QWidget" name="widget_107" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_107">
+           <item>
+            <widget class="QLabel" name="label_60">
+             <property name="text">
+              <string>Z运动次数</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Z_Counter">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="5" column="1" colspan="3">
+         <widget class="QWidget" name="widget_106" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_106">
+           <item>
+            <widget class="QLabel" name="label_59">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>产品信息</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Product_Information">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>
@@ -264,6 +899,19 @@
             <string>Pause</string>
            </property>
           </widget>
+          <widget class="QPushButton" name="btnX_Counter_Rst">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>130</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Count_Rst</string>
+           </property>
+          </widget>
          </widget>
         </item>
         <item>
@@ -470,6 +1118,19 @@
            </property>
            <property name="text">
             <string>Pause</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnY_Counter_Rst">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>120</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Count_Rst</string>
            </property>
           </widget>
          </widget>
@@ -680,19 +1341,22 @@
             <string>Pause</string>
            </property>
           </widget>
+          <widget class="QPushButton" name="btnZ_Counter_Rst">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>120</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Count_Rst</string>
+           </property>
+          </widget>
          </widget>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QPlainTextEdit" name="PLCReturn">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
       </item>
       <item>
        <spacer name="verticalSpacer">

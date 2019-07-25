@@ -81,6 +81,17 @@ int main(int argc, char *argv[])
     QObject::connect(&w,SIGNAL(SysAlmReset1()),plcS7,SLOT(onSysAlmReset1()));
     QObject::connect(&w,SIGNAL(SysAlmReset2()),plcS7,SLOT(onSysAlmReset2()));
 
+    QObject::connect(&w,SIGNAL(SysSpare1()),plcS7,SLOT(onSysSpare1()));
+    QObject::connect(&w,SIGNAL(SysSpare2()),plcS7,SLOT(onSysSpare2()));
+    QObject::connect(&w,SIGNAL(RightLaser()),plcS7,SLOT(onRightLaser()));
+    QObject::connect(&w,SIGNAL(LeftLaser()),plcS7,SLOT(onLeftLaser()));
+    QObject::connect(&w,SIGNAL(InitialSequenceReset()),plcS7,SLOT(onInitialSequenceReset()));
+    QObject::connect(&w,SIGNAL(AutoSequenceReset()),plcS7,SLOT(onAutoSequenceReset()));
+    QObject::connect(&w,SIGNAL(X_Counter_Rst()),plcS7,SLOT(onX_Counter_Rst()));
+    QObject::connect(&w,SIGNAL(Y_Counter_Rst()),plcS7,SLOT(onY_Counter_Rst()));
+    QObject::connect(&w,SIGNAL(Z_Counter_Rst()),plcS7,SLOT(onZ_Counter_Rst()));
+    QObject::connect(&w,SIGNAL(Total_Rst()),plcS7,SLOT(onTotal_Rst()));
+
     plcS7->start();
     return a.exec();
 }

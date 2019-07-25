@@ -57,6 +57,17 @@ LPCContrlDialog::LPCContrlDialog(QWidget *parent) :
     btnlist.append(ui->pushButton_setABSRight_3);
     btnlist.append(ui->pushButton_ABSLeft_3);
     btnlist.append(ui->pushButton_ABSRight_3);
+
+    btnlist.append(ui->btnSystem_Spare1);
+    btnlist.append(ui->btnSystem_Spare2);
+    btnlist.append(ui->btnRight_Laser);
+    btnlist.append(ui->btnLeft_Laser);
+    btnlist.append(ui->btnInitial_Sequence);
+    btnlist.append(ui->btnAuto_Sequence);
+    btnlist.append(ui->btnX_Counter_Rst);
+    btnlist.append(ui->btnY_Counter_Rst);
+    btnlist.append(ui->btnZ_Counter_Rst);
+    btnlist.append(ui->btnTotal_Rst);
 //    connect(this,SIGNAL(plcState(PLCState)),this,SLOT(onPLCState(PLCState)));
 }
 

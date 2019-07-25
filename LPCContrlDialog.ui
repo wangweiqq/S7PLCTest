@@ -1415,7 +1415,7 @@
            </layout>
           </widget>
          </item>
-         <item row="0" column="1" colspan="2">
+         <item row="0" column="1">
           <widget class="QWidget" name="widget_5" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
@@ -1441,7 +1441,7 @@
            </layout>
           </widget>
          </item>
-         <item row="0" column="3">
+         <item row="0" column="2">
           <widget class="QWidget" name="widget_9" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_9">
             <item>
@@ -1467,7 +1467,7 @@
            </layout>
           </widget>
          </item>
-         <item row="0" column="4">
+         <item row="0" column="3">
           <widget class="QWidget" name="widget_17" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_17">
             <item>
@@ -1519,7 +1519,7 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="2">
+         <item row="1" column="1">
           <widget class="QWidget" name="widget_15" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_15">
             <item>
@@ -1545,7 +1545,7 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="3">
+         <item row="1" column="2">
           <widget class="QWidget" name="widget_2" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <item>
@@ -1571,7 +1571,7 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="4">
+         <item row="1" column="3">
           <widget class="QWidget" name="widget_4" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
@@ -1597,7 +1597,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="0" colspan="2">
+         <item row="2" column="0">
           <widget class="QWidget" name="widget_7" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
@@ -1623,7 +1623,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="2">
+         <item row="2" column="1">
           <widget class="QWidget" name="widget_13" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_13">
             <item>
@@ -1649,7 +1649,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="3">
+         <item row="2" column="2">
           <widget class="QWidget" name="widget_10" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_10">
             <item>
@@ -1675,7 +1675,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="4">
+         <item row="2" column="3">
           <widget class="QWidget" name="widget_11" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_11">
             <item>
@@ -1701,7 +1701,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="0" colspan="2">
+         <item row="3" column="0">
           <widget class="QWidget" name="widget_3" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
@@ -1727,7 +1727,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="2">
+         <item row="3" column="1">
           <widget class="QWidget" name="widget_6" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
@@ -1753,7 +1753,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="3">
+         <item row="3" column="2">
           <widget class="QWidget" name="widget_8" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_8">
             <item>
@@ -1779,7 +1779,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="4">
+         <item row="3" column="3">
           <widget class="QWidget" name="widget_16" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_16">
             <item>
@@ -1831,7 +1831,7 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="2">
+         <item row="4" column="1">
           <widget class="QWidget" name="widget_18" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_18">
             <item>
@@ -1857,7 +1857,7 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="3">
+         <item row="4" column="2">
           <widget class="QWidget" name="widget_42" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_42">
             <item>
@@ -1883,7 +1883,7 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="4">
+         <item row="4" column="3">
           <widget class="QWidget" name="widget_38" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_38">
             <item>
@@ -1935,7 +1935,7 @@
            </layout>
           </widget>
          </item>
-         <item row="5" column="2">
+         <item row="5" column="1">
           <widget class="QWidget" name="widget_41" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_41">
             <item>
@@ -1961,7 +1961,7 @@
            </layout>
           </widget>
          </item>
-         <item row="5" column="3">
+         <item row="5" column="2">
           <widget class="QWidget" name="widget_37" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_37">
             <item>
@@ -1987,7 +1987,7 @@
            </layout>
           </widget>
          </item>
-         <item row="5" column="4">
+         <item row="5" column="3">
           <widget class="QWidget" name="widget_45" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_45">
             <item>
@@ -2039,7 +2039,7 @@
            </layout>
           </widget>
          </item>
-         <item row="6" column="2">
+         <item row="6" column="1">
           <widget class="QWidget" name="widget_43" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_43">
             <item>
@@ -2065,7 +2065,7 @@
            </layout>
           </widget>
          </item>
-         <item row="6" column="3">
+         <item row="6" column="2" colspan="2">
           <widget class="QWidget" name="widget_39" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_39">
             <item>
@@ -2132,7 +2132,7 @@
            </layout>
           </widget>
          </item>
-         <item row="0" column="1" colspan="2">
+         <item row="0" column="1">
           <widget class="QWidget" name="widget_47" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_47">
             <item>
@@ -2158,7 +2158,7 @@
            </layout>
           </widget>
          </item>
-         <item row="0" column="3">
+         <item row="0" column="2">
           <widget class="QWidget" name="widget_48" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_48">
             <item>
@@ -2184,7 +2184,7 @@
            </layout>
           </widget>
          </item>
-         <item row="0" column="4">
+         <item row="0" column="3">
           <widget class="QWidget" name="widget_49" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_49">
             <item>
@@ -2236,7 +2236,7 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="2">
+         <item row="1" column="1">
           <widget class="QWidget" name="widget_51" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_51">
             <item>
@@ -2262,7 +2262,7 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="3">
+         <item row="1" column="2">
           <widget class="QWidget" name="widget_52" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_52">
             <item>
@@ -2288,7 +2288,7 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="4">
+         <item row="1" column="3">
           <widget class="QWidget" name="widget_53" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_53">
             <item>
@@ -2314,7 +2314,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="0" colspan="2">
+         <item row="2" column="0">
           <widget class="QWidget" name="widget_54" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_54">
             <item>
@@ -2340,7 +2340,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="2">
+         <item row="2" column="1">
           <widget class="QWidget" name="widget_55" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_55">
             <item>
@@ -2366,7 +2366,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="3">
+         <item row="2" column="2">
           <widget class="QWidget" name="widget_56" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_56">
             <item>
@@ -2392,7 +2392,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="4">
+         <item row="2" column="3">
           <widget class="QWidget" name="widget_57" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_57">
             <item>
@@ -2418,7 +2418,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="0" colspan="2">
+         <item row="3" column="0">
           <widget class="QWidget" name="widget_58" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_58">
             <item>
@@ -2444,7 +2444,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="2">
+         <item row="3" column="1">
           <widget class="QWidget" name="widget_59" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_59">
             <item>
@@ -2470,7 +2470,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="3">
+         <item row="3" column="2">
           <widget class="QWidget" name="widget_60" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_60">
             <item>
@@ -2496,7 +2496,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="4">
+         <item row="3" column="3">
           <widget class="QWidget" name="widget_61" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_61">
             <item>
@@ -2548,7 +2548,7 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="2">
+         <item row="4" column="1">
           <widget class="QWidget" name="widget_63" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_63">
             <item>
@@ -2574,7 +2574,7 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="3">
+         <item row="4" column="2">
           <widget class="QWidget" name="widget_64" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_64">
             <item>
@@ -2600,7 +2600,7 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="4">
+         <item row="4" column="3">
           <widget class="QWidget" name="widget_65" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_65">
             <item>
@@ -2652,7 +2652,7 @@
            </layout>
           </widget>
          </item>
-         <item row="5" column="2">
+         <item row="5" column="1">
           <widget class="QWidget" name="widget_67" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_67">
             <item>
@@ -2678,7 +2678,7 @@
            </layout>
           </widget>
          </item>
-         <item row="5" column="3">
+         <item row="5" column="2">
           <widget class="QWidget" name="widget_68" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_68">
             <item>
@@ -2704,7 +2704,7 @@
            </layout>
           </widget>
          </item>
-         <item row="5" column="4">
+         <item row="5" column="3">
           <widget class="QWidget" name="widget_69" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_69">
             <item>
@@ -2756,7 +2756,7 @@
            </layout>
           </widget>
          </item>
-         <item row="6" column="2">
+         <item row="6" column="1">
           <widget class="QWidget" name="widget_71" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_71">
             <item>
@@ -2782,7 +2782,7 @@
            </layout>
           </widget>
          </item>
-         <item row="6" column="3">
+         <item row="6" column="2" colspan="2">
           <widget class="QWidget" name="widget_72" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_72">
             <item>
@@ -2849,7 +2849,7 @@
            </layout>
           </widget>
          </item>
-         <item row="0" column="1" colspan="2">
+         <item row="0" column="1">
           <widget class="QWidget" name="widget_74" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_74">
             <item>
@@ -2875,7 +2875,7 @@
            </layout>
           </widget>
          </item>
-         <item row="0" column="3">
+         <item row="0" column="2">
           <widget class="QWidget" name="widget_75" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_75">
             <item>
@@ -2901,7 +2901,7 @@
            </layout>
           </widget>
          </item>
-         <item row="0" column="4">
+         <item row="0" column="3">
           <widget class="QWidget" name="widget_76" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_76">
             <item>
@@ -2953,7 +2953,7 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="2">
+         <item row="1" column="1">
           <widget class="QWidget" name="widget_78" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_78">
             <item>
@@ -2979,7 +2979,7 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="3">
+         <item row="1" column="2">
           <widget class="QWidget" name="widget_79" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_79">
             <item>
@@ -3005,7 +3005,7 @@
            </layout>
           </widget>
          </item>
-         <item row="1" column="4">
+         <item row="1" column="3">
           <widget class="QWidget" name="widget_80" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_80">
             <item>
@@ -3031,7 +3031,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="0" colspan="2">
+         <item row="2" column="0">
           <widget class="QWidget" name="widget_81" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_81">
             <item>
@@ -3057,7 +3057,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="2">
+         <item row="2" column="1">
           <widget class="QWidget" name="widget_82" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_82">
             <item>
@@ -3083,7 +3083,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="3">
+         <item row="2" column="2">
           <widget class="QWidget" name="widget_83" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_83">
             <item>
@@ -3109,7 +3109,7 @@
            </layout>
           </widget>
          </item>
-         <item row="2" column="4">
+         <item row="2" column="3">
           <widget class="QWidget" name="widget_84" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_84">
             <item>
@@ -3135,7 +3135,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="0" colspan="2">
+         <item row="3" column="0">
           <widget class="QWidget" name="widget_85" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_85">
             <item>
@@ -3161,7 +3161,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="2">
+         <item row="3" column="1">
           <widget class="QWidget" name="widget_86" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_86">
             <item>
@@ -3187,7 +3187,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="3">
+         <item row="3" column="2">
           <widget class="QWidget" name="widget_87" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_87">
             <item>
@@ -3213,7 +3213,7 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="4">
+         <item row="3" column="3">
           <widget class="QWidget" name="widget_88" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_88">
             <item>
@@ -3265,7 +3265,7 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="2">
+         <item row="4" column="1">
           <widget class="QWidget" name="widget_90" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_90">
             <item>
@@ -3291,7 +3291,7 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="3">
+         <item row="4" column="2">
           <widget class="QWidget" name="widget_91" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_91">
             <item>
@@ -3317,7 +3317,7 @@
            </layout>
           </widget>
          </item>
-         <item row="4" column="4">
+         <item row="4" column="3">
           <widget class="QWidget" name="widget_92" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_92">
             <item>
@@ -3369,7 +3369,7 @@
            </layout>
           </widget>
          </item>
-         <item row="5" column="2">
+         <item row="5" column="1">
           <widget class="QWidget" name="widget_94" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_94">
             <item>
@@ -3395,7 +3395,7 @@
            </layout>
           </widget>
          </item>
-         <item row="5" column="3">
+         <item row="5" column="2">
           <widget class="QWidget" name="widget_95" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_95">
             <item>
@@ -3421,7 +3421,7 @@
            </layout>
           </widget>
          </item>
-         <item row="5" column="4">
+         <item row="5" column="3">
           <widget class="QWidget" name="widget_96" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_96">
             <item>
@@ -3473,7 +3473,7 @@
            </layout>
           </widget>
          </item>
-         <item row="6" column="2">
+         <item row="6" column="1">
           <widget class="QWidget" name="widget_98" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_98">
             <item>
@@ -3499,7 +3499,7 @@
            </layout>
           </widget>
          </item>
-         <item row="6" column="3">
+         <item row="6" column="2" colspan="2">
           <widget class="QWidget" name="widget_99" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_99">
             <item>

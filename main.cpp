@@ -2,13 +2,15 @@
 #include <QApplication>
 #include "plc_s7.h"
 #include "cplcstate.h"
+#include "cconfigmanager.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     qRegisterMetaType<PLCState>("PLCState");
-
+    CConfigManager* config = CConfigManager::getInstance();
+    qDebug()<<config->mPLCIp;
     PLC_S7 *plcS7 = NULL;
-    plcS7 = new PLC_S7("192.168.0.1");
+    plcS7 = new PLC_S7(config->mPLCIp);
 
     LPCContrlDialog w;
     w.show();

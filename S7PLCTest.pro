@@ -30,13 +30,15 @@ SOURCES += \
         main.cpp \
     plc_s7.cpp \
     snap7.cpp \
-    LPCContrlDialog.cpp
+    LPCContrlDialog.cpp \
+    cconfigmanager.cpp
 
 HEADERS += \
     plc_s7.h \
     snap7.h \
     LPCContrlDialog.h \
-    cplcstate.h
+    cplcstate.h \
+    cconfigmanager.h
 
 FORMS += \
     LPCContrlDialog.ui

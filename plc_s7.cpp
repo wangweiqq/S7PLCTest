@@ -146,11 +146,11 @@ void PLC_S7::run()
             // qDebug() << "connected";
             if(!listCommand.isEmpty()){
                 //执行PLC命令
-//                qDebug()<<"执行PLC命令1";
+                qDebug()<<"执行PLC命令1";
                 PLCCommand* command = listCommand.dequeue();
                 (*command)();
                 delete command;
-//                qDebug()<<"执行PLC命令2";
+                qDebug()<<"执行PLC命令2";
             }
         }
         else
@@ -166,20 +166,44 @@ void PLC_S7::run()
     }
     qDebug()<<"PLC_S7::run Exit";
 }
+float ConvertFloat(byte* src){
+    union{
+         byte b[4];
+         float f;
+    } u;
+
+    for(int i = 0;i<4;++i){
+        u.b[i] = src[3-i];
+    }
+    return u.f;
+}
+quint16 ConvertUInt16(byte* src){
+    union{
+         byte b[2];
+         quint32 i;
+    } u;
+
+    for(int i = 0;i<2;++i){
+        u.b[i] = src[1-i];
+    }
+    return u.i;
+}
 void PLC_S7::ParsePLC(){
     mutex.lock();
     byte data_array[12] = {0};
     int size = sizeof(data_array);
     ReadData(16, 0, size, data_array);
-    float fdata_array[6]= {0};
-    size = sizeof(fdata_array);
-    ReadData(11, 0, size, fdata_array);
-    uint16_t sdata_array[5] = {0};
-    size = sizeof(sdata_array);
-    ReadData(11, 22, size, sdata_array);
-    uint32_t idata = 0;
-    size = sizeof(idata);
-    ReadData(11, 34, size, &idata);
+    byte fdata_array[24] = {0};
+//    float fdata_array[6]= {0};
+//    size = sizeof(fdata_array);
+    ReadData(10, 0, 24, fdata_array);
+//    uint16_t sdata_array[5] = {0};
+    byte sdata_array[10] = {0};
+//    size = sizeof(sdata_array);
+    ReadData(10, 24, 10, sdata_array);
+    char strdata[32] = {0};
+    size = sizeof(strdata);
+    ReadData(10, 34, size, strdata);
 //    setDB16_0(data_array[0]);
     mutex.unlock();
 
@@ -299,29 +323,32 @@ void PLC_S7::ParsePLC(){
 
 
     //Z_当前位置
-    state.Z_ActualPosition = qToLittleEndian<float>(fdata_array[0]);
+    state.Z_ActualPosition = ConvertFloat(&fdata_array[0]);
     //X_当前位置
-    state.X_ActualPosition = qToLittleEndian<float>(fdata_array[1]);
+    state.X_ActualPosition = ConvertFloat(&fdata_array[4]);
     //Y_当前位置
-    state.Y_ActualPosition = qToLittleEndian<float>(fdata_array[2]);
+    state.Y_ActualPosition = ConvertFloat(&fdata_array[8]);
     //Z_目标位置
-    state.Z_TargetPosition = qToLittleEndian<float>(fdata_array[3]);
+    state.Z_TargetPosition = ConvertFloat(&fdata_array[12]);
     //X_目标位置
-    state.X_TargetPosition = qToLittleEndian<float>(fdata_array[4]);
+    //float t = ConvertFloat(&fdata_array[16]);
+    //qint32 t = qToLittleEndian<quint32>(fdata_array[16]);
+    state.X_TargetPosition = ConvertFloat(&fdata_array[16]);
     //Y_目标位置
-    state.Y_TargetPosition = qToLittleEndian<float>(fdata_array[5]);
+    state.Y_TargetPosition = ConvertFloat(&fdata_array[20]);
     //自动流程
-    state.Auto_Sequence = qToLittleEndian<quint16>(sdata_array[0]);
-    //初始化流程
-    state.Initial_Sequence = qToLittleEndian<quint16>(sdata_array[1]);
+    state.Auto_Sequence = ConvertUInt16(&sdata_array[0]);
+    //初始化流程float
+    state.Initial_Sequence = ConvertUInt16(&sdata_array[2]);
     //X_运动次数
-    state.X_Counter = qToLittleEndian<quint16>(sdata_array[2]);
+    state.X_Counter = ConvertUInt16(&sdata_array[4]);
     //Y_运动次数
-    state.Y_Counter = qToLittleEndian<quint16>(sdata_array[3]);
+    state.Y_Counter = ConvertUInt16(&sdata_array[6]);
     //Z_运动次数
-    state.Z_Counter = qToLittleEndian<quint16>(sdata_array[4]);
+    state.Z_Counter = ConvertUInt16(&sdata_array[8]);
     //产品信息
-    state.Product_Information = qToLittleEndian<quint32>(idata);
+    //state.Product_Information = qToLittleEndian<quint32>(idata);
+    memcpy(state.Product_Information,strdata+2,sizeof(strdata)-2);
 //    myclass.isflag = true;
 //    emit myTest(myclass);
 //    QVariant DataVar;

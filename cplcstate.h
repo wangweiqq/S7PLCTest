@@ -165,7 +165,7 @@ public:
     //Z_运动次数
     uint16_t Z_Counter = 0;
     //产品信息
-    uint32_t Product_Information = 0;
+    char Product_Information[32] = {0};
 };
 Q_DECLARE_METATYPE(PLCState)
 

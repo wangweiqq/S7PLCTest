@@ -223,6 +223,7 @@ void LPCContrlDialog::onPLCState(PLCState state){
     ui-> Z_Counter->setText(QString("%1").arg(mPlcState.Z_Counter));
     //产品信息
     ui-> Product_Information->setText(QString("%1").arg(mPlcState.Product_Information));
+    qDebug()<<mPlcState.Product_Information;
 //    QString str1 = QString("Z_PowerOn_Status = %1  Z_PowerOn_Error = %2  Z_Reset_Done = %3  Z_Reset_Error = %4  Z_Home_Done = %5  Z_Home_Error = %6  Z_ABS_Done = %7  Z_ABS_Error = %8\n")
 //                .arg(state.Z_PowerOn_Status).arg(state.Z_PowerOn_Error).arg(state.Z_Reset_Done).arg(state.Z_Reset_Error).arg(state.Z_Home_Done).arg(state.Z_Home_Error).arg(state.Z_ABS_Done).arg(state.Z_ABS_Error);
 //    QString str2 = QString("Z_JOG_inVelocity = %1  Z_JOG_Error = %2  Z_Halt_Done = %3  Z_Halt_Err = %4  Z_Readparam_Vaild = %5  Z_Readparam_Err = %6  Z_Reset_Busy = %7  Z_Home_Busy = %8\n")

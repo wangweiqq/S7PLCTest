@@ -111,17 +111,17 @@ void LPCContrlDialog::onPLCState(PLCState state){
     ui-> Z_Home_Busy->setText( mPlcState.Z_Home_Busy? "1" : "0");
 
     ui-> Z_ABS_Busy->setText( mPlcState.Z_ABS_Busy? "1" : "0");
-    ui-> Z_HomeComplete->setText( mPlcState.Z_HomeComplete? "1" : "0");
+//    ui-> Z_HomeComplete->setText( mPlcState.Z_HomeComplete? "1" : "0");
     ui-> Z_ABS_Done2->setText( mPlcState.Z_ABS_Done2? "1" : "0");
-    ui-> Z_Spare3->setText( mPlcState.Z_Spare3? "1" : "0");
-    ui-> Z_Spare4->setText( mPlcState.Z_Spare4? "1" : "0");
-    ui-> Z_Spare5->setText( mPlcState.Z_Spare5? "1" : "0");
-    ui-> Z_Spare6->setText( mPlcState.Z_Spare6? "1" : "0");
-    ui-> Z_Spare7->setText( mPlcState.Z_Spare7? "1" : "0");
+//    ui-> Z_Spare3->setText( mPlcState.Z_Spare3? "1" : "0");
+//    ui-> Z_Spare4->setText( mPlcState.Z_Spare4? "1" : "0");
+//    ui-> Z_Spare5->setText( mPlcState.Z_Spare5? "1" : "0");
+//    ui-> Z_Spare6->setText( mPlcState.Z_Spare6? "1" : "0");
+//    ui-> Z_Spare7->setText( mPlcState.Z_Spare7? "1" : "0");
 
-    ui-> Z_Spare8->setText( mPlcState.Z_Spare8? "1" : "0");
-    ui-> Z_Spare9->setText( mPlcState.Z_Spare9? "1" : "0");
-    ui-> Z_Spare10->setText( mPlcState.Z_Spare10? "1" : "0");
+//    ui-> Z_Spare8->setText( mPlcState.Z_Spare8? "1" : "0");
+//    ui-> Z_Spare9->setText( mPlcState.Z_Spare9? "1" : "0");
+//    ui-> Z_Spare10->setText( mPlcState.Z_Spare10? "1" : "0");
     ui-> X_PowerOn_Status->setText( mPlcState. X_PowerOn_Status? "1" : "0");
     ui-> X_PowerOn_Error->setText( mPlcState.X_PowerOn_Error? "1" : "0");
     ui-> X_Reset_Done->setText( mPlcState.X_Reset_Done? "1" : "0");
@@ -141,17 +141,17 @@ void LPCContrlDialog::onPLCState(PLCState state){
     ui-> X_Reset_Busy->setText( mPlcState.X_Reset_Busy? "1" : "0");
     ui-> X_Home_Busy->setText( mPlcState.X_Home_Busy? "1" : "0");
     ui-> X_ABS_Busy->setText( mPlcState.X_ABS_Busy? "1" : "0");
-    ui-> X_HomeComplete->setText( mPlcState.X_HomeComplete? "1" : "0");
+//    ui-> X_HomeComplete->setText( mPlcState.X_HomeComplete? "1" : "0");
     ui-> X_ABS_Done2 ->setText( mPlcState.X_ABS_Done2? "1" : "0");
-    ui-> X_Spare3->setText( mPlcState.X_Spare3? "1" : "0");
-    ui-> X_Spare4->setText( mPlcState.X_Spare4? "1" : "0");
+//    ui-> X_Spare3->setText( mPlcState.X_Spare3? "1" : "0");
+//    ui-> X_Spare4->setText( mPlcState.X_Spare4? "1" : "0");
 
-    ui-> X_Spare5->setText( mPlcState.X_Spare5? "1" : "0");
-    ui-> X_Spare6->setText( mPlcState.X_Spare6? "1" : "0");
-    ui-> X_Spare7->setText( mPlcState.X_Spare7? "1" : "0");
-    ui-> X_Spare8->setText( mPlcState. X_Spare8? "1" : "0");
-    ui-> X_Spare9->setText( mPlcState.X_Spare9? "1" : "0");
-    ui-> X_Spare10->setText( mPlcState.X_Spare10? "1" : "0");
+//    ui-> X_Spare5->setText( mPlcState.X_Spare5? "1" : "0");
+//    ui-> X_Spare6->setText( mPlcState.X_Spare6? "1" : "0");
+//    ui-> X_Spare7->setText( mPlcState.X_Spare7? "1" : "0");
+//    ui-> X_Spare8->setText( mPlcState. X_Spare8? "1" : "0");
+//    ui-> X_Spare9->setText( mPlcState.X_Spare9? "1" : "0");
+//    ui-> X_Spare10->setText( mPlcState.X_Spare10? "1" : "0");
     ui-> Y_PowerOn_Status->setText( mPlcState.Y_PowerOn_Status? "1" : "0");
     ui-> Y_PowerOn_Error->setText( mPlcState.Y_PowerOn_Error? "1" : "0");
 
@@ -171,18 +171,18 @@ void LPCContrlDialog::onPLCState(PLCState state){
     ui-> Y_Reset_Busy->setText( mPlcState.Y_Reset_Busy? "1" : "0");
     ui-> Y_Home_Busy->setText( mPlcState.Y_Home_Busy? "1" : "0");
     ui-> Y_ABS_Busy->setText( mPlcState.Y_ABS_Busy? "1" : "0");
-    ui-> Y_HomeComplete->setText( mPlcState.Y_HomeComplete? "1" : "0");
+//    ui-> Y_HomeComplete->setText( mPlcState.Y_HomeComplete? "1" : "0");
 
     ui-> Y_ABS_Done2->setText( mPlcState.Y_ABS_Done2? "1" : "0");
-    ui-> Y_Spare3->setText( mPlcState.Y_Spare3? "1" : "0");
-    ui-> Y_Spare4->setText( mPlcState.Y_Spare4? "1" : "0");
-    ui-> Y_Spare5->setText( mPlcState.Y_Spare5? "1" : "0");
-    ui-> Y_Spare6->setText( mPlcState.Y_Spare6? "1" : "0");
-    ui-> Y_Spare7->setText( mPlcState.Y_Spare7? "1" : "0");
-    ui-> Y_Spare8->setText(mPlcState.Y_Spare8? "1" : "0");
-    ui-> Y_Spare9->setText( mPlcState.Y_Spare9? "1" : "0");
+//    ui-> Y_Spare3->setText( mPlcState.Y_Spare3? "1" : "0");
+//    ui-> Y_Spare4->setText( mPlcState.Y_Spare4? "1" : "0");
+//    ui-> Y_Spare5->setText( mPlcState.Y_Spare5? "1" : "0");
+//    ui-> Y_Spare6->setText( mPlcState.Y_Spare6? "1" : "0");
+//    ui-> Y_Spare7->setText( mPlcState.Y_Spare7? "1" : "0");
+//    ui-> Y_Spare8->setText(mPlcState.Y_Spare8? "1" : "0");
+//    ui-> Y_Spare9->setText( mPlcState.Y_Spare9? "1" : "0");
 
-    ui-> Y_Spare10->setText( mPlcState.Y_Spare10? "1" : "0");
+//    ui-> Y_Spare10->setText( mPlcState.Y_Spare10? "1" : "0");
 
     //初始化完成
     ui-> Initial_Complete_Lamp->setText(mPlcState.Initial_Complete_Lamp? "1" : "0");

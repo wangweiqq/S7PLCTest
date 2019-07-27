@@ -2,6 +2,9 @@
 #include "LPCContrlDialog.h"
 #include "ui_LPCContrlDialog.h"
 #include <QDebug>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <exceloperator.h>
 LPCContrlDialog::LPCContrlDialog(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LPCContrlDialog)
@@ -221,6 +224,7 @@ void LPCContrlDialog::onPLCState(PLCState state){
     ui-> Y_Counter->setText(QString("%1").arg(mPlcState.Y_Counter));
     //Z_运动次数
     ui-> Z_Counter->setText(QString("%1").arg(mPlcState.Z_Counter));
+    ui->Product_Recipe->setText(QString("%1").arg(mPlcState.Product_Recipe));
     //产品信息
     ui-> Product_Information->setText(QString("%1").arg(mPlcState.Product_Information));
     qDebug()<<mPlcState.Product_Information;
@@ -714,4 +718,74 @@ void LPCContrlDialog::on_btnZ_Counter_Rst_clicked(){
 }
 void LPCContrlDialog::on_btnTotal_Rst_clicked(){
     emit Total_Rst();
+}
+//读写工单的X，Y,z集合
+void LPCContrlDialog::on_btnRRecipe_clicked(){
+    QString excelPath = QFileDialog::getSaveFileName(this, "保存Excel文件", QDir::currentPath(), "Excel文件(*.xlsx)");
+    if (excelPath.isEmpty()) {
+        QMessageBox::information(this, "信息", "请填写Excel文件路径");
+        return;
+    }
+    emit ReadRecipe(excelPath);
+    //qDebug()<<excelPath;
+}
+void LPCContrlDialog::on_btnWRecipe_clicked(){
+    QString excelPath = QFileDialog::getOpenFileName(this, "请打开Excel文件", QDir::currentPath(), "Excel文件(*.xlsx)");
+    if (excelPath.isEmpty()) {
+        QMessageBox::information(this, "信息", "请打开Excel文件");
+        return;
+    }
+    ExcelOperator readExcel;
+    bool bl = readExcel.open(excelPath, false);
+    if (!bl) {
+        QMessageBox::information(this, "信息", "请打开Excel文件错误");
+        return;
+    }
+    QAxObject* pWorkSheet = readExcel.getSheet("产品工单");
+    if (pWorkSheet == NULL) {
+        QMessageBox::information(this, "信息", "Excel没有找到[产品工单]表");
+        return;
+    }
+    int row_count = readExcel.getRowsCount(pWorkSheet);
+    int col_count = readExcel.getColumnsCount(pWorkSheet);
+    QString No = readExcel.getCell(pWorkSheet, 1, 2);
+    if (No.isEmpty()) {
+        QMessageBox::information(this, "信息", "工单号码不正确");
+        return;
+    }
+    int iNo = No.toInt();
+    if (!(iNo == 1 || iNo == 2)) {
+        QMessageBox::information(this, "信息", "工单号码不正确");
+        return;
+    }
+    QVector<float> xvector;
+    QVector<float> yvector;
+    QVector<float> zvector;
+    for (int i = 3; i < row_count+1; ++i) {
+        QString strX = readExcel.getCell(pWorkSheet, i, 2);
+        QString strY = readExcel.getCell(pWorkSheet, i, 3);
+        QString strZ = readExcel.getCell(pWorkSheet, i, 4);
+        if (strX.isEmpty() || strY.isEmpty() || strZ.isEmpty()) {
+            break;
+        }
+        xvector.append(strX.toFloat());
+        yvector.append(strY.toFloat());
+        zvector.append(strZ.toFloat());
+        qDebug() << "X:" << strX << ",Y:" << strY << ",Z:" << strZ;
+    }
+    if (iNo == 1) {
+        if (xvector.count() > 200) {
+            QMessageBox::information(this, "信息", "工单号1数量不能超过200条");
+            return;
+        }
+    }
+    else if(iNo == 2)
+    {
+        if (xvector.count() > 151) {
+            QMessageBox::information(this, "信息", "工单号2数量不能超过151条");
+            return;
+        }
+    }
+    //QMessageBox::information(this, "信息", "测试完成");
+    //emit WriteRecipe(iNo, xvector, yvector,zvector);
 }

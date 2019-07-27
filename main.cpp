@@ -94,6 +94,7 @@ int main(int argc, char *argv[])
     QObject::connect(&w,SIGNAL(Z_Counter_Rst()),plcS7,SLOT(onZ_Counter_Rst()));
     QObject::connect(&w,SIGNAL(Total_Rst()),plcS7,SLOT(onTotal_Rst()));
 
+    QObject::connect(&w,SIGNAL(ReadRecipe(QString)),plcS7,SLOT(onReadRecipe(QString)));
     plcS7->start();
     return a.exec();
 }

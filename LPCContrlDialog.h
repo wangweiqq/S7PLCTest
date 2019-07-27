@@ -96,6 +96,11 @@ signals:
     void Y_Counter_Rst();
     void Z_Counter_Rst();
     void Total_Rst();
+
+
+    void ReadRecipe(QString);
+    //No:工单号，xvec：x轴坐标集合
+    void WriteRecipe(int No, QVector<float> xvec, QVector<float> yvec, QVector<float> zvec);
 public slots:
     /*PLC ip地址链接失败*/
     void onPlcLinkChanged(bool IsOk);
@@ -171,6 +176,10 @@ public slots:
     void on_btnY_Counter_Rst_clicked();
     void on_btnZ_Counter_Rst_clicked();
     void on_btnTotal_Rst_clicked();
+
+    //读写工单的X，Y,z集合
+    void on_btnRRecipe_clicked();
+    void on_btnWRecipe_clicked();
 private:    
     Ui::LPCContrlDialog *ui;
     PLCState mPlcState;

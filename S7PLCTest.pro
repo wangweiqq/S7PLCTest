@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui axcontainer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -31,14 +31,16 @@ SOURCES += \
     plc_s7.cpp \
     snap7.cpp \
     LPCContrlDialog.cpp \
-    cconfigmanager.cpp
+    cconfigmanager.cpp \
+    exceloperator.cpp
 
 HEADERS += \
     plc_s7.h \
     snap7.h \
     LPCContrlDialog.h \
     cplcstate.h \
-    cconfigmanager.h
+    cconfigmanager.h \
+    exceloperator.h
 
 FORMS += \
     LPCContrlDialog.ui

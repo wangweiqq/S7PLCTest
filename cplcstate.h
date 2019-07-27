@@ -164,6 +164,8 @@ public:
     uint16_t Y_Counter = 0;
     //Z_运动次数
     uint16_t Z_Counter = 0;
+    //产品工单号(读取为1或2)
+    uint16_t Product_Recipe = 0;
     //产品信息
     char Product_Information[32] = {0};
 };

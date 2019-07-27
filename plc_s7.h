@@ -9,6 +9,14 @@
 #include <QQueue>
 #include <QVector>
 #include "cplcstate.h"
+union byteToFloat{
+     byte b[4];
+     float f;
+};
+union byeToInt16{
+     byte b[2];
+     quint32 i;
+};
 class PLC_S7 : public QThread
 {
     Q_OBJECT
@@ -19,6 +27,8 @@ public:
     void Push(PLCCommand* func);
 
     bool Connect();
+    int ReadRecipe(float** fxdata,float** fydata,float** fzdata );
+    void WriteRecope(byte* data);
 //    MyClass myclass;
 signals:
     void plcState(PLCState state);
@@ -121,6 +131,9 @@ public slots:
     void onY_Counter_Rst();
     void onZ_Counter_Rst();
     void onTotal_Rst();
+
+    void onReadRecipe(QString path);
+    void onWriteRecope(int No, QVector<float> xvec, QVector<float> yvec, QVector<float> zvec);
 private:
     inline void ParsePLC();
     inline int ReadData(int dbNum, int offset, int size, void* val);

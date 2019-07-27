@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>1337</width>
-    <height>831</height>
+    <height>906</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_18">
+  <layout class="QHBoxLayout" name="horizontalLayout_37">
    <item>
     <widget class="QWidget" name="widget_101" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -176,6 +176,36 @@
           </property>
           <property name="text">
            <string>自动流程复位</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_18">
+        <item>
+         <widget class="QPushButton" name="btnRRecipe">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>读当前工单</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnWRecipe">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>写当前工单</string>
           </property>
          </widget>
         </item>
@@ -1571,18 +1601,18 @@
             </layout>
            </widget>
           </item>
-          <item row="5" column="0">
-           <widget class="QWidget" name="widget_107" native="true">
-            <layout class="QHBoxLayout" name="horizontalLayout_107">
+          <item row="3" column="0">
+           <widget class="QWidget" name="widget_28" native="true">
+            <layout class="QHBoxLayout" name="horizontalLayout_30">
              <item>
-              <widget class="QLabel" name="label_60">
+              <widget class="QLabel" name="label_46">
                <property name="text">
-                <string>Z运动次数</string>
+                <string>Z当前位置</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="Z_Counter">
+              <widget class="QLabel" name="Z_ActualPosition">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1597,7 +1627,7 @@
             </layout>
            </widget>
           </item>
-          <item row="5" column="1" colspan="3">
+          <item row="5" column="2">
            <widget class="QWidget" name="widget_106" native="true">
             <layout class="QHBoxLayout" name="horizontalLayout_106">
              <item>
@@ -1629,18 +1659,44 @@
             </layout>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QWidget" name="widget_28" native="true">
-            <layout class="QHBoxLayout" name="horizontalLayout_30">
+          <item row="5" column="0">
+           <widget class="QWidget" name="widget_107" native="true">
+            <layout class="QHBoxLayout" name="horizontalLayout_107">
              <item>
-              <widget class="QLabel" name="label_46">
+              <widget class="QLabel" name="label_60">
                <property name="text">
-                <string>Z当前位置</string>
+                <string>Z运动次数</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="Z_ActualPosition">
+              <widget class="QLabel" name="Z_Counter">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QWidget" name="widget_108" native="true">
+            <layout class="QHBoxLayout" name="horizontalLayout_108">
+             <item>
+              <widget class="QLabel" name="label_61">
+               <property name="text">
+                <string>工单号</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="Product_Recipe">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>

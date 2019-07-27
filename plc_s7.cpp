@@ -176,7 +176,7 @@ float ConvertFloat(byte* src) {
     return u.f;
 }
 quint16 ConvertUInt16(byte* src) {
-    byeToInt16 u;
+    byteToInt16 u;
     for (int i = 0; i < 2; ++i) {
         u.b[i] = src[1 - i];
     }
@@ -1894,7 +1894,56 @@ void PLC_S7::Total_Rst_2() {
     byte data = rdata ^ BIT3;
     WriteData(2, 7, 1, &data);
 }
-
+void PLC_S7::X_WriteTargetPosition(uint16_t data) {
+    qDebug() << "PLC_S7::X_WriteTargetPosition";
+    byteToInt16 v;
+    v.i = ConvertUInt16((byte*)&data);
+    WriteData(3, 48, sizeof(v), v.b);
+}
+void PLC_S7::Type_1_Select_1() {
+    qDebug() << "PLC_S7::Type_1_Select_1";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata | BIT4;
+    WriteData(2, 7, 1, &data);
+}
+void PLC_S7::Type_1_Select_2() {
+    qDebug() << "PLC_S7::Type_1_Select_2";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata ^ BIT4;
+    WriteData(2, 7, 1, &data);
+}
+void PLC_S7::Type_2_Select_1() {
+    qDebug() << "PLC_S7::Type_2_Select_1";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata | BIT5;
+    WriteData(2, 7, 1, &data);
+}
+void PLC_S7::Type_2_Select_2() {
+    qDebug() << "PLC_S7::Type_2_Select_2";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata ^ BIT5;
+    WriteData(2, 7, 1, &data);
+}
+//手动置1
+void PLC_S7::Manul_X_Y_Z_1() {
+    qDebug() << "PLC_S7::Manul_X_Y_Z_1";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata | BIT6;
+    WriteData(2, 7, 1, &data);
+}
+//手动置0
+void PLC_S7::Manul_X_Y_Z_2() {
+    qDebug() << "PLC_S7::Manul_X_Y_Z_2";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata ^ BIT6;
+    WriteData(2, 7, 1, &data);
+}
 
 void PLC_S7::setArray(QVector<float> vec) {
     int size = vec.size();
@@ -2098,15 +2147,52 @@ int PLC_S7::ReadRecipe(float** fxdata, float** fydata, float** fzdata) {
     (*fzdata)[2] = 7.7;*/
     return count;
 }
-void PLC_S7::WriteRecope(byte* data) {
-    switch (state.Product_Recipe) {
-    case 1:
+//void PLC_S7::WriteRecope(byte* data) {
+//    switch (state.Product_Recipe) {
+//    case 1:
+//
+//        break;
+//    case 2:
+//        break;
+//    }
+//}
+//切换工单号
+void PLC_S7::onType_1_Select() {
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Type_1_Select_1, this);
+    this->Push(new PLCCommand(func));
 
-        break;
-    case 2:
-        break;
-    }
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Type_1_Select_2, this);
+    this->Push(new PLCCommand(func2));
+    qDebug() << "PLC_S7::onType_1_Select";
 }
+void PLC_S7::onType_2_Select() {
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Type_2_Select_1, this);
+    this->Push(new PLCCommand(func));
+
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Type_2_Select_2, this);
+    this->Push(new PLCCommand(func2));
+    qDebug() << "PLC_S7::onType_2_Select";
+}
+//手动到目标位，要执行3个命令
+void PLC_S7::onManul_X_Y_Z(uint16_t val) {
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::X_WriteTargetPosition, this, val);
+    this->Push(new PLCCommand(func));
+
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Manul_X_Y_Z_1, this);
+    this->Push(new PLCCommand(func2));
+
+    std::function<void()> func3;
+    func3 = std::bind(&PLC_S7::Manul_X_Y_Z_2, this);
+    this->Push(new PLCCommand(func3));
+    qDebug() << "PLC_S7::onManul_X_Y_Z";
+}
+
 //void PLC_S7::setArrayByte(byte* data,int size){
 ////    float value = 0.123f;
 //    WriteData(15, 0, size, data);

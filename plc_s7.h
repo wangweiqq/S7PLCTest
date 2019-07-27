@@ -13,9 +13,9 @@ union byteToFloat{
      byte b[4];
      float f;
 };
-union byeToInt16{
+union byteToInt16 {
      byte b[2];
-     quint32 i;
+     quint16 i;
 };
 class PLC_S7 : public QThread
 {
@@ -28,7 +28,7 @@ public:
 
     bool Connect();
     int ReadRecipe(float** fxdata,float** fydata,float** fzdata );
-    void WriteRecope(byte* data);
+    //void WriteRecope(byte* data);
 //    MyClass myclass;
 signals:
     void plcState(PLCState state);
@@ -134,6 +134,11 @@ public slots:
 
     void onReadRecipe(QString path);
     void onWriteRecope(int No, QVector<float> xvec, QVector<float> yvec, QVector<float> zvec);
+
+    void onType_1_Select();
+    void onType_2_Select();
+    //手动到目标位，要执行3个命令
+    void onManul_X_Y_Z(uint16_t);
 private:
     inline void ParsePLC();
     inline int ReadData(int dbNum, int offset, int size, void* val);
@@ -252,6 +257,15 @@ private:
     inline void Total_Rst_1();
     inline void Total_Rst_2();
 
+    inline void X_WriteTargetPosition(uint16_t data);
+    inline void Type_1_Select_1();
+    inline void Type_1_Select_2();
+    inline void Type_2_Select_1();
+    inline void Type_2_Select_2();
+    //手动置1
+    inline void Manul_X_Y_Z_1();
+    //手动置0
+    inline void Manul_X_Y_Z_2();
 //    void setABS(float data);
 //    void setJOG(float data);
 

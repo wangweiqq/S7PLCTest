@@ -789,3 +789,25 @@ void LPCContrlDialog::on_btnWRecipe_clicked(){
     //QMessageBox::information(this, "信息", "测试完成");
     emit WriteRecipe(iNo, xvector, yvector,zvector);
 }
+//切换工单编号
+void LPCContrlDialog::on_btnType_1_Select_clicked() {
+    emit Type_1_Select();
+}
+void LPCContrlDialog::on_btnType_2_Select_clicked() {
+    emit Type_2_Select();
+}
+//手动到目标位，要执行3个命令
+void LPCContrlDialog::on_btnManul_X_Y_Z_clicked() {
+    QString val = ui->X_WriteTargetPosition->text();
+    if (val.isEmpty()) {
+        QMessageBox::information(this, "信息", "输入值不能为空");
+        return;
+    }
+    bool bl;
+    uint16_t ival = val.toInt(&bl);
+    if (!bl) {
+        QMessageBox::information(this, "信息", "输入值必须为整数");
+        return;
+    }
+    emit Manul_X_Y_Z(ival);
+}

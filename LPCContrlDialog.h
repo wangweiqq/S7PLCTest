@@ -102,6 +102,9 @@ signals:
     //No:工单号，xvec：x轴坐标集合
     void WriteRecipe(int No, QVector<float> xvec, QVector<float> yvec, QVector<float> zvec);
 
+    void Type_1_Select();
+    void Type_2_Select();
+    void Manul_X_Y_Z(uint16_t);
 public slots:
     /*PLC ip地址链接失败*/
     void onPlcLinkChanged(bool IsOk);
@@ -181,6 +184,11 @@ public slots:
     //读写工单的X，Y,z集合
     void on_btnRRecipe_clicked();
     void on_btnWRecipe_clicked();
+    //切换工单编号
+    void on_btnType_1_Select_clicked();
+    void on_btnType_2_Select_clicked();
+    //手动到目标位，要执行3个命令
+    void on_btnManul_X_Y_Z_clicked();
 private:    
     Ui::LPCContrlDialog *ui;
     PLCState mPlcState;

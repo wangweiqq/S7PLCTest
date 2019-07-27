@@ -95,6 +95,7 @@ int main(int argc, char *argv[])
     QObject::connect(&w,SIGNAL(Total_Rst()),plcS7,SLOT(onTotal_Rst()));
 
     QObject::connect(&w,SIGNAL(ReadRecipe(QString)),plcS7,SLOT(onReadRecipe(QString)));
+	QObject::connect(&w,SIGNAL(WriteRecipe(int , QVector<float> , QVector<float> , QVector<float> )),plcS7,SLOT(onWriteRecope(int , QVector<float> , QVector<float> , QVector<float> )));
     plcS7->start();
     return a.exec();
 }

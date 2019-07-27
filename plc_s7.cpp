@@ -1951,7 +1951,12 @@ void PLC_S7::onReadRecipe(QString path) {
         QMessageBox::information(NULL, "信息", "保存完毕");
     }
     else {
-        QMessageBox::critical(NULL, "错误", "数据格式不对");
+		if (No == 1 || No == 2) {
+			QMessageBox::critical(NULL, "错误", "工单号不对");
+		}
+		else {
+			QMessageBox::critical(NULL, "错误", "数据格式不对");
+		}
     }
 }
 void PLC_S7::onWriteRecope(int No, QVector<float> xvec, QVector<float> yvec, QVector<float> zvec) {
@@ -1965,8 +1970,8 @@ void PLC_S7::onWriteRecope(int No, QVector<float> xvec, QVector<float> yvec, QVe
             byteToFloat zdata[200];//= { 0 };
             for (int i = 0; i < count; ++i) {
                 float xf = xvec[i];
-                float yf = xvec[i];
-                float zf = xvec[i];
+                float yf = yvec[i];
+                float zf = zvec[i];
                 xdata[i].f = ConvertFloat((byte*)&xf);
                 ydata[i].f = ConvertFloat((byte*)&yf);
                 zdata[i].f = ConvertFloat((byte*)&zf);
@@ -2005,7 +2010,7 @@ void PLC_S7::onWriteRecope(int No, QVector<float> xvec, QVector<float> yvec, QVe
         }
         break;
     }
-    QMessageBox::information(NULL, "信息", "读取完毕");
+    QMessageBox::information(NULL, "信息", "写入完毕");
 }
 int PLC_S7::ReadRecipe(float** fxdata, float** fydata, float** fzdata) {
     int count = 0;

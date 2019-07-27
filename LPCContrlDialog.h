@@ -101,6 +101,7 @@ signals:
     void ReadRecipe(QString);
     //No:工单号，xvec：x轴坐标集合
     void WriteRecipe(int No, QVector<float> xvec, QVector<float> yvec, QVector<float> zvec);
+
 public slots:
     /*PLC ip地址链接失败*/
     void onPlcLinkChanged(bool IsOk);

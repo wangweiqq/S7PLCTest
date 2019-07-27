@@ -787,5 +787,5 @@ void LPCContrlDialog::on_btnWRecipe_clicked(){
         }
     }
     //QMessageBox::information(this, "信息", "测试完成");
-    //emit WriteRecipe(iNo, xvector, yvector,zvector);
+    emit WriteRecipe(iNo, xvector, yvector,zvector);
 }

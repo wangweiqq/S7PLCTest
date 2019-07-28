@@ -112,6 +112,10 @@ public slots:
     /*读取PLC状态信息*/
     void onPLCState(PLCState state);
 
+    void on_btnSystemPage_clicked();
+    void on_btnXPage_clicked();
+    void on_btnYPage_clicked();
+    void on_btnZPage_clicked();
 
     void on_pushButton_setJOG_clicked();
     void on_pushButton_PowerOn_clicked();

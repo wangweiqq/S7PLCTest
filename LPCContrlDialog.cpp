@@ -71,6 +71,13 @@ LPCContrlDialog::LPCContrlDialog(QWidget *parent) :
     btnlist.append(ui->btnY_Counter_Rst);
     btnlist.append(ui->btnZ_Counter_Rst);
     btnlist.append(ui->btnTotal_Rst);
+    btnlist.append(ui->btnType_1_Select);
+    btnlist.append(ui->btnType_2_Select);
+    btnlist.append(ui->btnManul_X_Y_Z);
+    btnlist.append(ui->btnRRecipe);
+    btnlist.append(ui->btnWRecipe);
+    btnlist.append(ui->btnLocalOnLine);
+    on_btnSystemPage_clicked();
 //    connect(this,SIGNAL(plcState(PLCState)),this,SLOT(onPLCState(PLCState)));
 }
 
@@ -264,6 +271,20 @@ void LPCContrlDialog::onPLCState(PLCState state){
 //    ui->PLCReturn->appendPlainText(str10);
 //    ui->PLCReturn->appendPlainText(str11);
 }
+
+void LPCContrlDialog::on_btnSystemPage_clicked() {
+    ui->stackedWidget->setCurrentIndex(0);
+}
+void LPCContrlDialog::on_btnXPage_clicked() {
+    ui->stackedWidget->setCurrentIndex(1);
+}
+void LPCContrlDialog::on_btnYPage_clicked() {
+    ui->stackedWidget->setCurrentIndex(2);
+}
+void LPCContrlDialog::on_btnZPage_clicked() {
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
 void LPCContrlDialog::on_pushButton_setJOG_clicked(){
     float data = ui->lineEdit_setJOG->text().toFloat();
 //    std::function<void()> func;
@@ -721,7 +742,10 @@ void LPCContrlDialog::on_btnTotal_Rst_clicked(){
 }
 //读写工单的X，Y,z集合
 void LPCContrlDialog::on_btnRRecipe_clicked(){
-    QString excelPath = QFileDialog::getSaveFileName(this, "保存Excel文件", QDir::currentPath(), "Excel文件(*.xlsx)");
+    QString excelPath;
+    {
+        excelPath = QFileDialog::getSaveFileName(this, "保存Excel文件", QDir::currentPath(), "Excel文件(*.xlsx)");
+    }
     if (excelPath.isEmpty()) {
         QMessageBox::information(this, "信息", "请填写Excel文件路径");
         return;
@@ -730,7 +754,10 @@ void LPCContrlDialog::on_btnRRecipe_clicked(){
     //qDebug()<<excelPath;
 }
 void LPCContrlDialog::on_btnWRecipe_clicked(){
-    QString excelPath = QFileDialog::getOpenFileName(this, "请打开Excel文件", QDir::currentPath(), "Excel文件(*.xlsx)");
+    QString excelPath;
+    {
+        excelPath = QFileDialog::getOpenFileName(this, "请打开Excel文件", QDir::currentPath(), "Excel文件(*.xlsx)");
+    }
     if (excelPath.isEmpty()) {
         QMessageBox::information(this, "信息", "请打开Excel文件");
         return;

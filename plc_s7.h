@@ -139,6 +139,8 @@ public slots:
     void onType_2_Select();
     //手动到目标位，要执行3个命令
     void onManul_X_Y_Z(uint16_t);
+    //本地远程
+    void onLocalOnLine();
 private:
     inline void ParsePLC();
     inline int ReadData(int dbNum, int offset, int size, void* val);
@@ -266,6 +268,9 @@ private:
     inline void Manul_X_Y_Z_1();
     //手动置0
     inline void Manul_X_Y_Z_2();
+
+    inline void LocalOnLine_1();
+    inline void LocalOnLine_2();
 //    void setABS(float data);
 //    void setJOG(float data);
 

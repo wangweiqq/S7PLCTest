@@ -120,8 +120,8 @@ public:
     bool Y_Spare8 = false;
     bool Y_Spare9 = false;
 
-    bool Y_Spare10 = false;
-
+    //bool Y_Spare10 = false;
+    bool LocalOnLineState = false;
     //初始化完成
     bool Initial_Complete_Lamp = false;
     //系统运行中

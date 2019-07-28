@@ -293,7 +293,8 @@ void PLC_S7::ParsePLC() {
     state.Y_Spare8 = (data_array[9] & BIT6) != 0;
     state.Y_Spare9 = (data_array[9] & BIT7) != 0;
 
-    state.Y_Spare10 = (data_array[10] & BIT0) != 0;
+    //state.Y_Spare10 = (data_array[10] & BIT0) != 0;
+    state.LocalOnLineState = (data_array[10] & BIT0) != 0;
     //初始化完成
     state.Initial_Complete_Lamp = (data_array[10] & BIT1) != 0;
     //系统运行中
@@ -1944,7 +1945,20 @@ void PLC_S7::Manul_X_Y_Z_2() {
     byte data = rdata ^ BIT6;
     WriteData(2, 7, 1, &data);
 }
-
+void PLC_S7::LocalOnLine_1() {
+    qDebug() << "PLC_S7::LocalOnLine_1";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata | BIT7;
+    WriteData(2, 7, 1, &data);
+}
+void PLC_S7::LocalOnLine_2() {
+    qDebug() << "PLC_S7::LocalOnLine_2";
+    byte rdata = 0;
+    ReadData(2, 7, 1, &rdata);
+    byte data = rdata ^ BIT7;
+    WriteData(2, 7, 1, &data);
+}
 void PLC_S7::setArray(QVector<float> vec) {
     int size = vec.size();
     int len = size*sizeof(float);
@@ -2192,7 +2206,16 @@ void PLC_S7::onManul_X_Y_Z(uint16_t val) {
     this->Push(new PLCCommand(func3));
     qDebug() << "PLC_S7::onManul_X_Y_Z";
 }
+//本地远程
+void PLC_S7::onLocalOnLine() {
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::LocalOnLine_1, this);
+    this->Push(new PLCCommand(func));
 
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::LocalOnLine_2, this);
+    this->Push(new PLCCommand(func2));
+}
 //void PLC_S7::setArrayByte(byte* data,int size){
 ////    float value = 0.123f;
 //    WriteData(15, 0, size, data);

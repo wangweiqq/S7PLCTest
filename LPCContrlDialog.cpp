@@ -185,7 +185,8 @@ void LPCContrlDialog::onPLCState(PLCState state){
 //    ui-> Y_Spare8->setText(mPlcState.Y_Spare8? "1" : "0");
 //    ui-> Y_Spare9->setText( mPlcState.Y_Spare9? "1" : "0");
 
-//    ui-> Y_Spare10->setText( mPlcState.Y_Spare10? "1" : "0");
+    //ui-> Y_Spare10->setText( mPlcState.Y_Spare10? "1" : "0");
+    ui->LocalOnLineState->setText(mPlcState.LocalOnLineState ? "1" : "0");
 
     //初始化完成
     ui-> Initial_Complete_Lamp->setText(mPlcState.Initial_Complete_Lamp? "1" : "0");
@@ -249,7 +250,6 @@ void LPCContrlDialog::onPLCState(PLCState state){
 //    QString str10 = QString("Y_ABS_Done2 = %1  Y_Spare3 = %2  Y_Spare4 = %3  Y_Spare5 = %4  Y_Spare6 = %5  Y_Spare7 = %6  Y_Spare8 = %7  Y_Spare9 = %8\n")
 //                .arg(state.Y_ABS_Done2).arg(state.Y_Spare3).arg(state.Y_Spare4).arg(state.Y_Spare5).arg(state.Y_Spare6).arg(state.Y_Spare7).arg(state.Y_Spare8).arg(state.Y_Spare9);
 
-//    QString str11 = QString("Y_Spare10 = %1\n").arg(state.Y_Spare10);
 
 //    ui->PLCReturn->clear();
 //    ui->PLCReturn->appendPlainText(str1);
@@ -810,4 +810,8 @@ void LPCContrlDialog::on_btnManul_X_Y_Z_clicked() {
         return;
     }
     emit Manul_X_Y_Z(ival);
+}
+//本地远程
+void LPCContrlDialog::on_btnLocalOnLine_clicked() {
+    emit LocalOnLine();
 }

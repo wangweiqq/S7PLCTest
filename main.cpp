@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
     QObject::connect(&w, SIGNAL(Type_1_Select()), plcS7, SLOT(onType_1_Select()));
     QObject::connect(&w, SIGNAL(Type_2_Select()), plcS7, SLOT(onType_2_Select()));
     QObject::connect(&w, SIGNAL(Manul_X_Y_Z(uint16_t)), plcS7, SLOT(onManul_X_Y_Z(uint16_t)));
-
+	QObject::connect(&w, SIGNAL(LocalOnLine()), plcS7, SLOT(onLocalOnLine()));
     plcS7->start();
     return a.exec();
 }

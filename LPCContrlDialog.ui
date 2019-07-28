@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>791</width>
-    <height>667</height>
+    <width>724</width>
+    <height>660</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -432,6 +432,19 @@
           <string>系统控制</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_8">
+          <item row="0" column="3">
+           <widget class="QPushButton" name="btnSysStop">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>系统停止</string>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="0">
            <widget class="QPushButton" name="btnSysInitial">
             <property name="minimumSize">
@@ -458,8 +471,8 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="2">
-           <widget class="QPushButton" name="btnSysPause">
+          <item row="1" column="5">
+           <widget class="QPushButton" name="btnAuto_Sequence">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -467,12 +480,12 @@
              </size>
             </property>
             <property name="text">
-             <string>系统暂停</string>
+             <string>自动流程复位</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="3">
-           <widget class="QPushButton" name="btnSysStop">
+          <item row="2" column="1">
+           <widget class="QPushButton" name="btnType_2_Select">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -480,7 +493,59 @@
              </size>
             </property>
             <property name="text">
-             <string>系统停止</string>
+             <string>选择产品2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QPushButton" name="btnTotal_Rst">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>已检产品数复位</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="btnType_1_Select">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>选择产品1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="btnLeft_Laser">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>左激光</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="btnRight_Laser">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>右激光</string>
             </property>
            </widget>
           </item>
@@ -497,8 +562,8 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="5">
-           <widget class="QPushButton" name="btnTotal_Rst">
+          <item row="1" column="4">
+           <widget class="QPushButton" name="btnInitial_Sequence">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -506,7 +571,7 @@
              </size>
             </property>
             <property name="text">
-             <string>已检产品数复位</string>
+             <string>初始化流程复位</string>
             </property>
            </widget>
           </item>
@@ -536,8 +601,8 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QPushButton" name="btnRight_Laser">
+          <item row="0" column="2">
+           <widget class="QPushButton" name="btnSysPause">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -545,99 +610,11 @@
              </size>
             </property>
             <property name="text">
-             <string>右激光</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="QPushButton" name="btnLeft_Laser">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>左激光</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="4">
-           <widget class="QPushButton" name="btnInitial_Sequence">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>初始化流程复位</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="5">
-           <widget class="QPushButton" name="btnAuto_Sequence">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>自动流程复位</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="btnType_1_Select">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>选择产品1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QPushButton" name="btnType_2_Select">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>选择产品2</string>
+             <string>系统暂停</string>
             </property>
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="QLineEdit" name="X_WriteTargetPosition">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="3">
-           <widget class="QPushButton" name="btnManul_X_Y_Z">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>手动目标位</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="4">
            <widget class="QPushButton" name="btnRRecipe">
             <property name="minimumSize">
              <size>
@@ -650,7 +627,7 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="5">
+          <item row="2" column="3">
            <widget class="QPushButton" name="btnWRecipe">
             <property name="minimumSize">
              <size>
@@ -660,6 +637,35 @@
             </property>
             <property name="text">
              <string>写当前工单</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <widget class="QLineEdit" name="X_WriteTargetPosition">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="5">
+           <widget class="QPushButton" name="btnManul_X_Y_Z">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>手动目标位</string>
             </property>
            </widget>
           </item>

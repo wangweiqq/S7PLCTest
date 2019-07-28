@@ -6,6 +6,7 @@ ExcelOperator::ExcelOperator(QObject *parent) : QObject(parent)
   , m_pWorksheets(NULL)
   , m_pWorkbook(NULL)
 {
+    CoInitializeEx(NULL, COINIT_MULTITHREADED);
 }
 ExcelOperator::~ExcelOperator()
 {
@@ -13,22 +14,23 @@ ExcelOperator::~ExcelOperator()
     close();
     qDebug()<<"ExcelOperator 退出";
 }
-
+ExcelOperator* ExcelOperator::Instance() {
+    static ExcelOperator obj;
+    return &obj;
+}
 bool ExcelOperator::open(QString path,bool isNew)
 {
     m_strPath = path;
     QAxObject *pWorkbooks = NULL;
-    CoInitializeEx(NULL, COINIT_MULTITHREADED);
+    if (m_pExcel) {
+        close();
+    }
     m_pExcel = new QAxObject();//new(std::nothrow) QAxObject();
     if (NULL == m_pExcel) {
         qCritical()<<"创建Excel对象失败...";
         return false;
     }
     try {
-
-        
-       
-
         m_pExcel->setControl("Excel.Application");
         m_pExcel->dynamicCall("SetVisible(bool)", false); //true 表示操作文件时可见，false表示为不可见
         m_pExcel->setProperty("DisplayAlerts", false);

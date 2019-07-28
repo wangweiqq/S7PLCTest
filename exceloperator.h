@@ -10,8 +10,11 @@
 class ExcelOperator : public QObject
 {
     Q_OBJECT
-public:
+
+private:
     explicit ExcelOperator(QObject *parent = nullptr);
+public:
+    static ExcelOperator* Instance();
     ~ExcelOperator();
     //打开文件isNew = 是否新建Excel表（注意Excel文件不存在）
     bool open(QString path,bool isNew = true);

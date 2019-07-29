@@ -77,6 +77,10 @@ LPCContrlDialog::LPCContrlDialog(QWidget *parent) :
     btnlist.append(ui->btnRRecipe);
     btnlist.append(ui->btnWRecipe);
     btnlist.append(ui->btnLocalOnLine);
+	btnlist.append(ui->btnTest_Button);
+	btnlist.append(ui->btnX_HMI_WritePosition);
+	btnlist.append(ui->btnY_HMI_WritePosition);
+	btnlist.append(ui->btnZ_HMI_WritePosition);
     on_btnSystemPage_clicked();
 //    connect(this,SIGNAL(plcState(PLCState)),this,SLOT(onPLCState(PLCState)));
 }
@@ -84,6 +88,7 @@ LPCContrlDialog::LPCContrlDialog(QWidget *parent) :
 LPCContrlDialog::~LPCContrlDialog()
 {
     delete ui;
+	btnlist.clear();
 //    delete plcS7;
 //    plcS7 = NULL;
 }

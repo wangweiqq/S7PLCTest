@@ -556,15 +556,7 @@ void PLC_S7::onSetArray1(QVector<float> vec) {
     this->Push(new PLCCommand(func));
     qDebug() << "PLC_S7::onSetArray1";
 }
-void PLC_S7::onX_ABS3_Manul() {
-    std::function<void()> func;
-    func = std::bind(&PLC_S7::X_ABS3_Manul_1, this);
-    this->Push(new PLCCommand(func));
-    std::function<void()> func2;
-    func2 = std::bind(&PLC_S7::X_ABS3_Manul_2,this);
-    this->Push(new PLCCommand(func2));
-    qDebug() << "PLC_S7::onX_ABS3_Manul";
-}
+
 void PLC_S7::onABSLeft1() {
     //    if(!AllowCmdPLC()){
     //        return;
@@ -743,15 +735,7 @@ void PLC_S7::onSetArray2(QVector<float> vec) {
     this->Push(new PLCCommand(func));
     qDebug() << "PLC_S7::onSetArray2";
 }
-void PLC_S7::onY_ABS3_Manul() {
-    std::function<void()> func;
-    func = std::bind(&PLC_S7::Y_ABS3_Manul_1, this);
-    this->Push(new PLCCommand(func));
-    std::function<void()> func2;
-    func2 = std::bind(&PLC_S7::Y_ABS3_Manul_2,this);
-    this->Push(new PLCCommand(func2));
-    qDebug() << "PLC_S7::onY_ABS3_Manul";
-}
+
 void PLC_S7::onABSLeft2() {
     //    if(!AllowCmdPLC()){
     //        return;
@@ -930,15 +914,7 @@ void PLC_S7::onSetArray3(QVector<float> vec) {
     this->Push(new PLCCommand(func));
     qDebug() << "PLC_S7::onSetArray3";
 }
-void PLC_S7::onZ_ABS3_Manul() {
-    std::function<void()> func;
-    func = std::bind(&PLC_S7::Z_ABS3_Manul_1, this);
-    this->Push(new PLCCommand(func));
-    std::function<void()> func2;
-    func2 = std::bind(&PLC_S7::Z_ABS3_Manul_2,this);
-    this->Push(new PLCCommand(func2));
-    qDebug() << "PLC_S7::onZ_ABS3_Manul";
-}
+
 void PLC_S7::onABSLeft3() {
     //    if(!AllowCmdPLC()){
     //        return;
@@ -2339,20 +2315,72 @@ void PLC_S7::onX_HMI_WritePosition(float val){
     std::function<void()> func;
     func = std::bind(&PLC_S7::X_HMI_WritePosition, this, val);
     this->Push(new PLCCommand(func));
+
+    std::function<void()> func1;
+    func1 = std::bind(&PLC_S7::X_ABS3_Manul_1, this);
+    this->Push(new PLCCommand(func1));
+
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::X_ABS3_Manul_2, this);
+    this->Push(new PLCCommand(func2));
     qDebug() << "PLC_S7::onX_HMI_WritePosition";
 }
 void PLC_S7::onY_HMI_WritePosition(float val){
     std::function<void()> func;
     func = std::bind(&PLC_S7::Y_HMI_WritePosition, this, val);
     this->Push(new PLCCommand(func));
+
+    std::function<void()> func1;
+    func1 = std::bind(&PLC_S7::Y_ABS3_Manul_1, this);
+    this->Push(new PLCCommand(func1));
+
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Y_ABS3_Manul_2, this);
+    this->Push(new PLCCommand(func2));
     qDebug() << "PLC_S7::onY_HMI_WritePosition";
 }
 void PLC_S7::onZ_HMI_WritePosition(float val){
     std::function<void()> func;
     func = std::bind(&PLC_S7::Z_HMI_WritePosition, this, val);
     this->Push(new PLCCommand(func));
+
+    std::function<void()> func1;
+    func1 = std::bind(&PLC_S7::Z_ABS3_Manul_1, this);
+    this->Push(new PLCCommand(func1));
+
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Z_ABS3_Manul_2, this);
+    this->Push(new PLCCommand(func2));
+
     qDebug() << "PLC_S7::onZ_HMI_WritePosition";
 }
+//void PLC_S7::onX_ABS3_Manul() {
+//    std::function<void()> func;
+//    func = std::bind(&PLC_S7::X_ABS3_Manul_1, this);
+//    this->Push(new PLCCommand(func));
+//    std::function<void()> func2;
+//    func2 = std::bind(&PLC_S7::X_ABS3_Manul_2, this);
+//    this->Push(new PLCCommand(func2));
+//    qDebug() << "PLC_S7::onX_ABS3_Manul";
+//}
+//void PLC_S7::onY_ABS3_Manul() {
+//    std::function<void()> func;
+//    func = std::bind(&PLC_S7::Y_ABS3_Manul_1, this);
+//    this->Push(new PLCCommand(func));
+//    std::function<void()> func2;
+//    func2 = std::bind(&PLC_S7::Y_ABS3_Manul_2, this);
+//    this->Push(new PLCCommand(func2));
+//    qDebug() << "PLC_S7::onY_ABS3_Manul";
+//}
+//void PLC_S7::onZ_ABS3_Manul() {
+//    std::function<void()> func;
+//    func = std::bind(&PLC_S7::Z_ABS3_Manul_1, this);
+//    this->Push(new PLCCommand(func));
+//    std::function<void()> func2;
+//    func2 = std::bind(&PLC_S7::Z_ABS3_Manul_2, this);
+//    this->Push(new PLCCommand(func2));
+//    qDebug() << "PLC_S7::onZ_ABS3_Manul";
+//}
 //void PLC_S7::setArrayByte(byte* data,int size){
 ////    float value = 0.123f;
 //    WriteData(15, 0, size, data);

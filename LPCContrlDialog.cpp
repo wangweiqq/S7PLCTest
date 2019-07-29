@@ -385,9 +385,9 @@ void LPCContrlDialog::on_pushButton_setArray_clicked(){
 //    plcS7->onSetArray1(vec);
     emit SetArray1(vec);
 }
-void LPCContrlDialog::on_btnX_ABS3_Manul_clicked() {
-    emit X_ABS3_Manul();
-}
+//void LPCContrlDialog::on_btnX_ABS3_Manul_clicked() {
+//    emit X_ABS3_Manul();
+//}
 //void LPCContrlDialog::on_pushButton_ABSLeft_clicked(){
 //    emit ABSLeft1();
 //}
@@ -500,9 +500,9 @@ void LPCContrlDialog::on_pushButton_setArray_2_clicked(){
 //    plcS7->onSetArray2(vec);
     emit SetArray2(vec);
 }
-void LPCContrlDialog::on_btnY_ABS3_Manul_clicked() {
-    emit Y_ABS3_Manul();
-}
+//void LPCContrlDialog::on_btnY_ABS3_Manul_clicked() {
+//    emit Y_ABS3_Manul();
+//}
 //void LPCContrlDialog::on_pushButton_ABSLeft_2_clicked(){
 //    emit ABSLeft2();
 //}
@@ -615,9 +615,9 @@ void LPCContrlDialog::on_pushButton_setArray_3_clicked(){
 //    plcS7->onSetArray3(vec);
     emit SetArray3(vec);
 }
-void LPCContrlDialog::on_btnZ_ABS3_Manul_clicked() {
-    emit Z_ABS3_Manul();
-}
+//void LPCContrlDialog::on_btnZ_ABS3_Manul_clicked() {
+//    emit Z_ABS3_Manul();
+//}
 //void LPCContrlDialog::on_pushButton_ABSLeft_3_clicked(){
 //    emit ABSLeft3();
 //}

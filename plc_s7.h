@@ -57,7 +57,7 @@ public slots:
     void onJOGMinus1_1();
     void onJOGMinus1_2();
     void onSetArray1(QVector<float> vec);
-    void onX_ABS3_Manul();
+    //void onX_ABS3_Manul();
     void onABSLeft1();
     void onABSLeft1_2();
     void onABSRight1();
@@ -81,7 +81,7 @@ public slots:
     void onJOGMinus2_1();
     void onJOGMinus2_2();
     void onSetArray2(QVector<float> vec);
-    void onY_ABS3_Manul();
+    //void onY_ABS3_Manul();
     void onABSLeft2();
     void onABSLeft2_2();
     void onABSRight2();
@@ -105,7 +105,7 @@ public slots:
     void onJOGMinus3_1();
     void onJOGMinus3_2();
     void onSetArray3(QVector<float> vec);
-    void onZ_ABS3_Manul();
+    //void onZ_ABS3_Manul();
     void onABSLeft3();
     void onABSLeft3_2();
     void onABSRight3();

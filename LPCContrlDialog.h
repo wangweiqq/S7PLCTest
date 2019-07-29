@@ -136,7 +136,7 @@ public slots:
     void on_pushButton_JOGMinus_pressed();
     void on_pushButton_JOGMinus_released();
     void on_pushButton_setArray_clicked();
-    void on_btnX_ABS3_Manul_clicked();
+    //void on_btnX_ABS3_Manul_clicked();
     //void on_pushButton_ABSLeft_clicked();
     //void on_pushButton_ABSRight_clicked();
     //void on_pushButton_setABSLeft_clicked();
@@ -153,7 +153,7 @@ public slots:
     void on_pushButton_JOGMinus_2_pressed();
     void on_pushButton_JOGMinus_2_released();
     void on_pushButton_setArray_2_clicked();
-    void on_btnY_ABS3_Manul_clicked();
+    //void on_btnY_ABS3_Manul_clicked();
     //void on_pushButton_ABSLeft_2_clicked();
     //void on_pushButton_ABSRight_2_clicked();
     //void on_pushButton_setABSLeft_2_clicked();
@@ -170,7 +170,7 @@ public slots:
     void on_pushButton_JOGMinus_3_pressed();
     void on_pushButton_JOGMinus_3_released();
     void on_pushButton_setArray_3_clicked();
-    void on_btnZ_ABS3_Manul_clicked();
+    //void on_btnZ_ABS3_Manul_clicked();
     //void on_pushButton_ABSLeft_3_clicked();
     //void on_pushButton_ABSRight_3_clicked();
     //void on_pushButton_setABSLeft_3_clicked();

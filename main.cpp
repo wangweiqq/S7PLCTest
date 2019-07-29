@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     QObject::connect(&w,SIGNAL(JOGPlus1_1()),plcS7,SLOT(onJOGPlus1_1()));
     QObject::connect(&w,SIGNAL(JOGPlus1_2()),plcS7,SLOT(onJOGPlus1_2()));
     QObject::connect(&w,SIGNAL(SetArray1(QVector<float>)),plcS7,SLOT(onSetArray1(QVector<float>)));
-    QObject::connect(&w, SIGNAL(X_ABS3_Manul()), plcS7, SLOT(onX_ABS3_Manul()));
+    //QObject::connect(&w, SIGNAL(X_ABS3_Manul()), plcS7, SLOT(onX_ABS3_Manul()));
     //QObject::connect(&w,SIGNAL(ABSLeft1()),plcS7,SLOT(onABSLeft1()));
     //QObject::connect(&w,SIGNAL(ABSRight1()),plcS7,SLOT(onABSRight1()));
     //QObject::connect(&w,SIGNAL(SetABSLeft1()),plcS7,SLOT(onSetABSLeft1()));
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     QObject::connect(&w,SIGNAL(JOGPlus2_1()),plcS7,SLOT(onJOGPlus2_1()));
     QObject::connect(&w,SIGNAL(JOGPlus2_2()),plcS7,SLOT(onJOGPlus2_2()));
     QObject::connect(&w,SIGNAL(SetArray2(QVector<float>)),plcS7,SLOT(onSetArray2(QVector<float>)));
-    QObject::connect(&w, SIGNAL(Y_ABS3_Manul()), plcS7, SLOT(onY_ABS3_Manul()));
+    //QObject::connect(&w, SIGNAL(Y_ABS3_Manul()), plcS7, SLOT(onY_ABS3_Manul()));
     //QObject::connect(&w,SIGNAL(ABSLeft2()),plcS7,SLOT(onABSLeft2()));
     //QObject::connect(&w,SIGNAL(ABSRight2()),plcS7,SLOT(onABSRight2()));
     //QObject::connect(&w,SIGNAL(SetABSLeft2()),plcS7,SLOT(onSetABSLeft2()));
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     QObject::connect(&w,SIGNAL(JOGPlus3_1()),plcS7,SLOT(onJOGPlus3_1()));
     QObject::connect(&w,SIGNAL(JOGPlus3_2()),plcS7,SLOT(onJOGPlus3_2()));
     QObject::connect(&w,SIGNAL(SetArray3(QVector<float>)),plcS7,SLOT(onSetArray3(QVector<float>)));
-    QObject::connect(&w, SIGNAL(Z_ABS3_Manul()), plcS7, SLOT(onZ_ABS3_Manul()));
+    //QObject::connect(&w, SIGNAL(Z_ABS3_Manul()), plcS7, SLOT(onZ_ABS3_Manul()));
     //QObject::connect(&w,SIGNAL(ABSLeft3()),plcS7,SLOT(onABSLeft3()));
     //QObject::connect(&w,SIGNAL(ABSRight3()),plcS7,SLOT(onABSRight3()));
     //QObject::connect(&w,SIGNAL(SetABSLeft3()),plcS7,SLOT(onSetABSLeft3()));

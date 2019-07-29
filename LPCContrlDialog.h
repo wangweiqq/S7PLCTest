@@ -34,10 +34,11 @@ signals:
     void JOGMinus1_1();
     void JOGMinus1_2();
     void SetArray1(QVector<float> vec);
-    void ABSLeft1();
-    void ABSRight1();
-    void SetABSLeft1();
-    void SetABSRight1();
+    void X_ABS3_Manul();
+    //void ABSLeft1();
+    //void ABSRight1();
+    //void SetABSLeft1();
+    //void SetABSRight1();
 //////////////////////////2///////////////////////////////
     void SetJOG2(float data);
     void PowerOn2();
@@ -53,10 +54,11 @@ signals:
     void JOGMinus2_1();
     void JOGMinus2_2();
     void SetArray2(QVector<float> vec);
-    void ABSLeft2();
-    void ABSRight2();
-    void SetABSLeft2();
-    void SetABSRight2();
+    void Y_ABS3_Manul();
+    //void ABSLeft2();
+    //void ABSRight2();
+    //void SetABSLeft2();
+    //void SetABSRight2();
 //////////////////////////3///////////////////////////////
     void SetJOG3(float data);
     void PowerOn3();
@@ -71,10 +73,11 @@ signals:
     void JOGMinus3_1();
     void JOGMinus3_2();
     void SetArray3(QVector<float> vec);
-    void ABSLeft3();
-    void ABSRight3();
-    void SetABSLeft3();
-    void SetABSRight3();
+    void Z_ABS3_Manul();
+    //void ABSLeft3();
+    //void ABSRight3();
+    //void SetABSLeft3();
+    //void SetABSRight3();
     ////////////////////////////////////
     void SysInitial1();
     void SysInitial2();
@@ -133,10 +136,11 @@ public slots:
     void on_pushButton_JOGMinus_pressed();
     void on_pushButton_JOGMinus_released();
     void on_pushButton_setArray_clicked();
-    void on_pushButton_ABSLeft_clicked();
-    void on_pushButton_ABSRight_clicked();
-    void on_pushButton_setABSLeft_clicked();
-    void on_pushButton_setABSRight_clicked();
+    void on_btnX_ABS3_Manul_clicked();
+    //void on_pushButton_ABSLeft_clicked();
+    //void on_pushButton_ABSRight_clicked();
+    //void on_pushButton_setABSLeft_clicked();
+    //void on_pushButton_setABSRight_clicked();
 //////////////////////////2///////////////////////////////
     void on_pushButton_setJOG_2_clicked();
     void on_pushButton_PowerOn_2_clicked();
@@ -149,10 +153,11 @@ public slots:
     void on_pushButton_JOGMinus_2_pressed();
     void on_pushButton_JOGMinus_2_released();
     void on_pushButton_setArray_2_clicked();
-    void on_pushButton_ABSLeft_2_clicked();
-    void on_pushButton_ABSRight_2_clicked();
-    void on_pushButton_setABSLeft_2_clicked();
-    void on_pushButton_setABSRight_2_clicked();
+    void on_btnY_ABS3_Manul_clicked();
+    //void on_pushButton_ABSLeft_2_clicked();
+    //void on_pushButton_ABSRight_2_clicked();
+    //void on_pushButton_setABSLeft_2_clicked();
+    //void on_pushButton_setABSRight_2_clicked();
 //////////////////////////3///////////////////////////////
     void on_pushButton_setJOG_3_clicked();
     void on_pushButton_PowerOn_3_clicked();
@@ -165,10 +170,11 @@ public slots:
     void on_pushButton_JOGMinus_3_pressed();
     void on_pushButton_JOGMinus_3_released();
     void on_pushButton_setArray_3_clicked();
-    void on_pushButton_ABSLeft_3_clicked();
-    void on_pushButton_ABSRight_3_clicked();
-    void on_pushButton_setABSLeft_3_clicked();
-    void on_pushButton_setABSRight_3_clicked();
+    void on_btnZ_ABS3_Manul_clicked();
+    //void on_pushButton_ABSLeft_3_clicked();
+    //void on_pushButton_ABSRight_3_clicked();
+    //void on_pushButton_setABSLeft_3_clicked();
+    //void on_pushButton_setABSRight_3_clicked();
     ////////////////////////////////////////////////////////
     void on_btnSysInitial_pressed();
     void on_btnSysInitial_released();

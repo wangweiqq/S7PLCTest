@@ -556,6 +556,15 @@ void PLC_S7::onSetArray1(QVector<float> vec) {
     this->Push(new PLCCommand(func));
     qDebug() << "PLC_S7::onSetArray1";
 }
+void PLC_S7::onX_ABS3_Manul() {
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::X_ABS3_Manul_1, this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::X_ABS3_Manul_2,this);
+    this->Push(new PLCCommand(func2));
+    qDebug() << "PLC_S7::onX_ABS3_Manul";
+}
 void PLC_S7::onABSLeft1() {
     //    if(!AllowCmdPLC()){
     //        return;
@@ -734,6 +743,15 @@ void PLC_S7::onSetArray2(QVector<float> vec) {
     this->Push(new PLCCommand(func));
     qDebug() << "PLC_S7::onSetArray2";
 }
+void PLC_S7::onY_ABS3_Manul() {
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Y_ABS3_Manul_1, this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Y_ABS3_Manul_2,this);
+    this->Push(new PLCCommand(func2));
+    qDebug() << "PLC_S7::onY_ABS3_Manul";
+}
 void PLC_S7::onABSLeft2() {
     //    if(!AllowCmdPLC()){
     //        return;
@@ -911,6 +929,15 @@ void PLC_S7::onSetArray3(QVector<float> vec) {
     func = std::bind(&PLC_S7::setArray, this, vec);
     this->Push(new PLCCommand(func));
     qDebug() << "PLC_S7::onSetArray3";
+}
+void PLC_S7::onZ_ABS3_Manul() {
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Z_ABS3_Manul_1, this);
+    this->Push(new PLCCommand(func));
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Z_ABS3_Manul_2,this);
+    this->Push(new PLCCommand(func2));
+    qDebug() << "PLC_S7::onZ_ABS3_Manul";
 }
 void PLC_S7::onABSLeft3() {
     //    if(!AllowCmdPLC()){
@@ -1365,6 +1392,49 @@ void PLC_S7::Z_Home_2() {
 //    data[1] = 0x00;
 //    WriteData(2, 0, 2, data);
 //}
+void PLC_S7::X_ABS3_Manul_1() {
+    qDebug() << "PLC_S7::X_ABS3_Manul_1";
+    byte rdata = 0;
+    ReadData(2, 3, 1, &rdata);
+    byte data = rdata | BIT1;
+    WriteData(2, 3, 1, &data);
+}
+void PLC_S7::X_ABS3_Manul_2() {
+    qDebug() << "PLC_S7::X_ABS3_Manul_2";
+    byte rdata = 0;
+    ReadData(2, 3, 1, &rdata);
+    byte data = rdata ^ BIT1;
+    WriteData(2, 3, 1, &data);
+}
+void PLC_S7::Y_ABS3_Manul_1() {
+    qDebug() << "PLC_S7::Y_ABS3_Manul_1";
+    byte rdata = 0;
+    ReadData(2, 4, 1, &rdata);
+    byte data = rdata | BIT4;
+    WriteData(2, 4, 1, &data);
+}
+void PLC_S7::Y_ABS3_Manul_2() {
+    qDebug() << "PLC_S7::Y_ABS3_Manul_2";
+    byte rdata = 0;
+    ReadData(2, 4, 1, &rdata);
+    byte data = rdata ^ BIT4;
+    WriteData(2, 4, 1, &data);
+}
+void PLC_S7::Z_ABS3_Manul_1() {
+    qDebug() << "PLC_S7::Y_ABS3_Manul_1";
+    byte rdata = 0;
+    ReadData(2, 0, 1, &rdata);
+    byte data = rdata | BIT6;
+    WriteData(2, 0, 1, &data);
+}
+void PLC_S7::Z_ABS3_Manul_2() {
+    qDebug() << "PLC_S7::Y_ABS3_Manul_1";
+    byte rdata = 0;
+    ReadData(2, 0, 1, &rdata);
+    byte data = rdata ^ BIT6;
+    WriteData(2, 0, 1, &data);
+}
+
 void PLC_S7::X_ABSLeft_1() {
     qDebug() << "PLC_S7::X_ABSLeft_1";
     byte rdata = 0;

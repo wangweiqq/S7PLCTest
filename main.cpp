@@ -16,8 +16,7 @@ int main(int argc, char *argv[])
 
     LPCContrlDialog w;
     w.show();
-    //QObject::connect(plcS7,SIGNAL(plcState(PLCState)),&w,SIGNAL(plcState(PLCState)));
-    //QObject::connect(plcS7,SIGNAL(plcState(PLCState)),&w,SIGNAL(onPLCState(PLCState)));
+
     QObject::connect(plcS7,SIGNAL(plcState(PLCState)),&w,SLOT(onPLCState(PLCState)));
     QObject::connect(plcS7,SIGNAL(plcLinkChanged(bool)),&w,SLOT(onPlcLinkChanged(bool)));
 
@@ -34,10 +33,11 @@ int main(int argc, char *argv[])
     QObject::connect(&w,SIGNAL(JOGPlus1_1()),plcS7,SLOT(onJOGPlus1_1()));
     QObject::connect(&w,SIGNAL(JOGPlus1_2()),plcS7,SLOT(onJOGPlus1_2()));
     QObject::connect(&w,SIGNAL(SetArray1(QVector<float>)),plcS7,SLOT(onSetArray1(QVector<float>)));
-    QObject::connect(&w,SIGNAL(ABSLeft1()),plcS7,SLOT(onABSLeft1()));
-    QObject::connect(&w,SIGNAL(ABSRight1()),plcS7,SLOT(onABSRight1()));
-    QObject::connect(&w,SIGNAL(SetABSLeft1()),plcS7,SLOT(onSetABSLeft1()));
-    QObject::connect(&w,SIGNAL(SetABSRight1()),plcS7,SLOT(onSetABSRight1()));
+    QObject::connect(&w, SIGNAL(X_ABS3_Manul()), plcS7, SLOT(onX_ABS3_Manul()));
+    //QObject::connect(&w,SIGNAL(ABSLeft1()),plcS7,SLOT(onABSLeft1()));
+    //QObject::connect(&w,SIGNAL(ABSRight1()),plcS7,SLOT(onABSRight1()));
+    //QObject::connect(&w,SIGNAL(SetABSLeft1()),plcS7,SLOT(onSetABSLeft1()));
+    //QObject::connect(&w,SIGNAL(SetABSRight1()),plcS7,SLOT(onSetABSRight1()));
 
     QObject::connect(&w,SIGNAL(SetJOG2(float)),plcS7,SLOT(onSetJOG2(float)));
     QObject::connect(&w,SIGNAL(PowerOn2()),plcS7,SLOT(onPowerOn2()));
@@ -52,10 +52,11 @@ int main(int argc, char *argv[])
     QObject::connect(&w,SIGNAL(JOGPlus2_1()),plcS7,SLOT(onJOGPlus2_1()));
     QObject::connect(&w,SIGNAL(JOGPlus2_2()),plcS7,SLOT(onJOGPlus2_2()));
     QObject::connect(&w,SIGNAL(SetArray2(QVector<float>)),plcS7,SLOT(onSetArray2(QVector<float>)));
-    QObject::connect(&w,SIGNAL(ABSLeft2()),plcS7,SLOT(onABSLeft2()));
-    QObject::connect(&w,SIGNAL(ABSRight2()),plcS7,SLOT(onABSRight2()));
-    QObject::connect(&w,SIGNAL(SetABSLeft2()),plcS7,SLOT(onSetABSLeft2()));
-    QObject::connect(&w,SIGNAL(SetABSRight2()),plcS7,SLOT(onSetABSRight2()));
+    QObject::connect(&w, SIGNAL(Y_ABS3_Manul()), plcS7, SLOT(onY_ABS3_Manul()));
+    //QObject::connect(&w,SIGNAL(ABSLeft2()),plcS7,SLOT(onABSLeft2()));
+    //QObject::connect(&w,SIGNAL(ABSRight2()),plcS7,SLOT(onABSRight2()));
+    //QObject::connect(&w,SIGNAL(SetABSLeft2()),plcS7,SLOT(onSetABSLeft2()));
+    //QObject::connect(&w,SIGNAL(SetABSRight2()),plcS7,SLOT(onSetABSRight2()));
 
     QObject::connect(&w,SIGNAL(SetJOG3(float)),plcS7,SLOT(onSetJOG3(float)));
     QObject::connect(&w,SIGNAL(PowerOn3()),plcS7,SLOT(onPowerOn3()));
@@ -70,10 +71,11 @@ int main(int argc, char *argv[])
     QObject::connect(&w,SIGNAL(JOGPlus3_1()),plcS7,SLOT(onJOGPlus3_1()));
     QObject::connect(&w,SIGNAL(JOGPlus3_2()),plcS7,SLOT(onJOGPlus3_2()));
     QObject::connect(&w,SIGNAL(SetArray3(QVector<float>)),plcS7,SLOT(onSetArray3(QVector<float>)));
-    QObject::connect(&w,SIGNAL(ABSLeft3()),plcS7,SLOT(onABSLeft3()));
-    QObject::connect(&w,SIGNAL(ABSRight3()),plcS7,SLOT(onABSRight3()));
-    QObject::connect(&w,SIGNAL(SetABSLeft3()),plcS7,SLOT(onSetABSLeft3()));
-    QObject::connect(&w,SIGNAL(SetABSRight3()),plcS7,SLOT(onSetABSRight3()));
+    QObject::connect(&w, SIGNAL(Z_ABS3_Manul()), plcS7, SLOT(onZ_ABS3_Manul()));
+    //QObject::connect(&w,SIGNAL(ABSLeft3()),plcS7,SLOT(onABSLeft3()));
+    //QObject::connect(&w,SIGNAL(ABSRight3()),plcS7,SLOT(onABSRight3()));
+    //QObject::connect(&w,SIGNAL(SetABSLeft3()),plcS7,SLOT(onSetABSLeft3()));
+    //QObject::connect(&w,SIGNAL(SetABSRight3()),plcS7,SLOT(onSetABSRight3()));
 
     QObject::connect(&w,SIGNAL(SysInitial1()),plcS7,SLOT(onSysInitial1()));
     QObject::connect(&w,SIGNAL(SysInitial2()),plcS7,SLOT(onSysInitial2()));

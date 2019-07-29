@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>724</width>
-    <height>660</height>
+    <height>711</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1409,45 +1409,6 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="3">
-           <widget class="QPushButton" name="pushButton_ABSRight">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>前往位置2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QPushButton" name="pushButton_ABSLeft">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>前往位置1</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QPushButton" name="pushButton_setABSRight">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>设置位置2</string>
-            </property>
-           </widget>
-          </item>
           <item row="2" column="3">
            <widget class="QPushButton" name="pushButton_setArray">
             <property name="minimumSize">
@@ -1462,7 +1423,7 @@
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QPushButton" name="pushButton_setABSLeft">
+           <widget class="QPushButton" name="btnX_ABS3_Manul">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -1470,7 +1431,7 @@
              </size>
             </property>
             <property name="text">
-             <string>设置位置1</string>
+             <string>前往位置3</string>
             </property>
            </widget>
           </item>
@@ -2339,25 +2300,6 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="2">
-           <widget class="QPushButton" name="pushButton_ABSLeft_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>前往位置1</string>
-            </property>
-           </widget>
-          </item>
           <item row="2" column="2">
            <widget class="QPushButton" name="btnY_Counter_Rst">
             <property name="sizePolicy">
@@ -2396,46 +2338,8 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="3">
-           <widget class="QPushButton" name="pushButton_ABSRight_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>前往位置2</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QPushButton" name="pushButton_setABSRight_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>设置位置2</string>
-            </property>
-           </widget>
-          </item>
           <item row="3" column="0">
-           <widget class="QPushButton" name="pushButton_setABSLeft_2">
+           <widget class="QPushButton" name="btnY_ABS3_Manul">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -2449,7 +2353,7 @@
              </size>
             </property>
             <property name="text">
-             <string>设置位置1</string>
+             <string>前往位置3</string>
             </property>
            </widget>
           </item>
@@ -3168,19 +3072,6 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QPushButton" name="pushButton_setABSRight_3">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>设置位置2</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="2">
            <widget class="QPushButton" name="pushButton_Reset_3">
             <property name="minimumSize">
@@ -3191,19 +3082,6 @@
             </property>
             <property name="text">
              <string>复位</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="3">
-           <widget class="QPushButton" name="pushButton_ABSRight_3">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>前往位置2</string>
             </property>
            </widget>
           </item>
@@ -3220,21 +3098,8 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="2">
-           <widget class="QPushButton" name="pushButton_ABSLeft_3">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>前往位置1</string>
-            </property>
-           </widget>
-          </item>
           <item row="3" column="0">
-           <widget class="QPushButton" name="pushButton_setABSLeft_3">
+           <widget class="QPushButton" name="btnZ_ABS3_Manul">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -3242,7 +3107,7 @@
              </size>
             </property>
             <property name="text">
-             <string>设置位置1</string>
+             <string>前往位置3</string>
             </property>
            </widget>
           </item>

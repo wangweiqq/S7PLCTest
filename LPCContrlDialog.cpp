@@ -28,10 +28,10 @@ LPCContrlDialog::LPCContrlDialog(QWidget *parent) :
     btnlist.append(ui->pushButton_Home);
     btnlist.append(ui->pushButton_JOGMinus);
     btnlist.append(ui->pushButton_JOGPlus);
-    btnlist.append(ui->pushButton_setABSLeft);
-    btnlist.append(ui->pushButton_setABSRight);
-    btnlist.append(ui->pushButton_ABSLeft);
-    btnlist.append(ui->pushButton_ABSRight);
+    //btnlist.append(ui->pushButton_setABSLeft);
+    //btnlist.append(ui->pushButton_setABSRight);
+    //btnlist.append(ui->pushButton_ABSLeft);
+    //btnlist.append(ui->pushButton_ABSRight);
 
     btnlist.append(ui->pushButton_setArray_2);
     btnlist.append(ui->pushButton_Reset_2);
@@ -42,10 +42,10 @@ LPCContrlDialog::LPCContrlDialog(QWidget *parent) :
     btnlist.append(ui->pushButton_Home_2);
     btnlist.append(ui->pushButton_JOGMinus_2);
     btnlist.append(ui->pushButton_JOGPlus_2);
-    btnlist.append(ui->pushButton_setABSLeft_2);
-    btnlist.append(ui->pushButton_setABSRight_2);
-    btnlist.append(ui->pushButton_ABSLeft_2);
-    btnlist.append(ui->pushButton_ABSRight_2);
+    //btnlist.append(ui->pushButton_setABSLeft_2);
+    //btnlist.append(ui->pushButton_setABSRight_2);
+    //btnlist.append(ui->pushButton_ABSLeft_2);
+    //btnlist.append(ui->pushButton_ABSRight_2);
 
     btnlist.append(ui->pushButton_setArray_3);
     btnlist.append(ui->pushButton_Reset_3);
@@ -56,10 +56,10 @@ LPCContrlDialog::LPCContrlDialog(QWidget *parent) :
     btnlist.append(ui->pushButton_Home_3);
     btnlist.append(ui->pushButton_JOGMinus_3);
     btnlist.append(ui->pushButton_JOGPlus_3);
-    btnlist.append(ui->pushButton_setABSLeft_3);
-    btnlist.append(ui->pushButton_setABSRight_3);
-    btnlist.append(ui->pushButton_ABSLeft_3);
-    btnlist.append(ui->pushButton_ABSRight_3);
+    //btnlist.append(ui->pushButton_setABSLeft_3);
+    //btnlist.append(ui->pushButton_setABSRight_3);
+    //btnlist.append(ui->pushButton_ABSLeft_3);
+    //btnlist.append(ui->pushButton_ABSRight_3);
 
     btnlist.append(ui->btnSystem_Spare1);
     btnlist.append(ui->btnSystem_Spare2);
@@ -385,40 +385,21 @@ void LPCContrlDialog::on_pushButton_setArray_clicked(){
 //    plcS7->onSetArray1(vec);
     emit SetArray1(vec);
 }
-void LPCContrlDialog::on_pushButton_ABSLeft_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::ABSLeft_pressed,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    std::function<void()> func2;
-//    func2 = std::bind(&PLC_S7::ABSLeft_released,plcS7);
-//    plcS7->Push(new PLCCommand(func2));
-//    plcS7->onABSLeft1();
-    emit ABSLeft1();
+void LPCContrlDialog::on_btnX_ABS3_Manul_clicked() {
+    emit X_ABS3_Manul();
 }
-void LPCContrlDialog::on_pushButton_ABSRight_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::ABSRight_pressed,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    std::function<void()> func2;
-//    func2 = std::bind(&PLC_S7::ABSRight_released,plcS7);
-//    plcS7->Push(new PLCCommand(func2));
-//    plcS7->onABSRight1();
-    emit ABSRight1();
-}
-void LPCContrlDialog::on_pushButton_setABSLeft_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::setABSLeft_clicked,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    plcS7->onSetABSLeft1();
-    emit SetABSLeft1();
-}
-void LPCContrlDialog::on_pushButton_setABSRight_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::setABSRight_clicked,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    plcS7->onSetABSRight1();
-    emit SetABSRight1();
-}
+//void LPCContrlDialog::on_pushButton_ABSLeft_clicked(){
+//    emit ABSLeft1();
+//}
+//void LPCContrlDialog::on_pushButton_ABSRight_clicked(){
+//    emit ABSRight1();
+//}
+//void LPCContrlDialog::on_pushButton_setABSLeft_clicked(){
+//    emit SetABSLeft1();
+//}
+//void LPCContrlDialog::on_pushButton_setABSRight_clicked(){
+//    emit SetABSRight1();
+//}
 ////////////////////////////2//////////////////////////////////
 void LPCContrlDialog::on_pushButton_setJOG_2_clicked(){
     float data = ui->lineEdit_setJOG_2->text().toFloat();
@@ -519,40 +500,21 @@ void LPCContrlDialog::on_pushButton_setArray_2_clicked(){
 //    plcS7->onSetArray2(vec);
     emit SetArray2(vec);
 }
-void LPCContrlDialog::on_pushButton_ABSLeft_2_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::ABSLeft_pressed,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    std::function<void()> func2;
-//    func2 = std::bind(&PLC_S7::ABSLeft_released,plcS7);
-//    plcS7->Push(new PLCCommand(func2));
-//    plcS7->onABSLeft2();
-    emit ABSLeft2();
+void LPCContrlDialog::on_btnY_ABS3_Manul_clicked() {
+    emit Y_ABS3_Manul();
 }
-void LPCContrlDialog::on_pushButton_ABSRight_2_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::ABSRight_pressed,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    std::function<void()> func2;
-//    func2 = std::bind(&PLC_S7::ABSRight_released,plcS7);
-//    plcS7->Push(new PLCCommand(func2));
-//    plcS7->onABSRight2();
-    emit ABSRight2();
-}
-void LPCContrlDialog::on_pushButton_setABSLeft_2_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::setABSLeft_clicked,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//     plcS7->onSetABSLeft2();
-    emit SetABSLeft2();
-}
-void LPCContrlDialog::on_pushButton_setABSRight_2_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::setABSRight_clicked,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    plcS7->onSetABSRight2();
-    emit SetABSRight2();
-}
+//void LPCContrlDialog::on_pushButton_ABSLeft_2_clicked(){
+//    emit ABSLeft2();
+//}
+//void LPCContrlDialog::on_pushButton_ABSRight_2_clicked(){
+//    emit ABSRight2();
+//}
+//void LPCContrlDialog::on_pushButton_setABSLeft_2_clicked(){
+//    emit SetABSLeft2();
+//}
+//void LPCContrlDialog::on_pushButton_setABSRight_2_clicked(){
+//    emit SetABSRight2();
+//}
 ///////////////////////////3//////////////////////////
 void LPCContrlDialog::on_pushButton_setJOG_3_clicked(){
     float data = ui->lineEdit_setJOG_3->text().toFloat();
@@ -653,40 +615,21 @@ void LPCContrlDialog::on_pushButton_setArray_3_clicked(){
 //    plcS7->onSetArray3(vec);
     emit SetArray3(vec);
 }
-void LPCContrlDialog::on_pushButton_ABSLeft_3_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::ABSLeft_pressed,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    std::function<void()> func2;
-//    func2 = std::bind(&PLC_S7::ABSLeft_released,plcS7);
-//    plcS7->Push(new PLCCommand(func2));
-//    plcS7->onABSLeft3();
-    emit ABSLeft3();
+void LPCContrlDialog::on_btnZ_ABS3_Manul_clicked() {
+    emit Z_ABS3_Manul();
 }
-void LPCContrlDialog::on_pushButton_ABSRight_3_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::ABSRight_pressed,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    std::function<void()> func2;
-//    func2 = std::bind(&PLC_S7::ABSRight_released,plcS7);
-//    plcS7->Push(new PLCCommand(func2));
-//    plcS7->onABSRight3();
-    emit ABSRight3();
-}
-void LPCContrlDialog::on_pushButton_setABSLeft_3_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::setABSLeft_clicked,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    plcS7->onSetABSLeft3();
-    emit SetABSLeft3();
-}
-void LPCContrlDialog::on_pushButton_setABSRight_3_clicked(){
-//    std::function<void()> func;
-//    func = std::bind(&PLC_S7::setABSRight_clicked,plcS7);
-//    plcS7->Push(new PLCCommand(func));
-//    plcS7->onSetABSRight3();
-    emit SetABSRight3();
-}
+//void LPCContrlDialog::on_pushButton_ABSLeft_3_clicked(){
+//    emit ABSLeft3();
+//}
+//void LPCContrlDialog::on_pushButton_ABSRight_3_clicked(){
+//    emit ABSRight3();
+//}
+//void LPCContrlDialog::on_pushButton_setABSLeft_3_clicked(){
+//    emit SetABSLeft3();
+//}
+//void LPCContrlDialog::on_pushButton_setABSRight_3_clicked(){
+//    emit SetABSRight3();
+//}
 void LPCContrlDialog::on_btnSysInitial_pressed(){
     emit SysInitial1();
 }

@@ -1959,6 +1959,41 @@ void PLC_S7::LocalOnLine_2() {
     byte data = rdata ^ BIT7;
     WriteData(2, 7, 1, &data);
 }
+//测试
+void PLC_S7::Test_Button_1(){
+    qDebug() << "PLC_S7::Test_Button_1";
+    byte rdata = 0;
+    ReadData(2, 8, 1, &rdata);
+    byte data = rdata | BIT0;
+    WriteData(2, 7, 1, &data);
+}
+void PLC_S7::Test_Button_2(){
+    qDebug() << "PLC_S7::Test_Button_2";
+    byte rdata = 0;
+    ReadData(2, 8, 1, &rdata);
+    byte data = rdata ^ BIT0;
+    WriteData(2, 7, 1, &data);
+}
+//手动X，Y,Z值
+void PLC_S7::X_HMI_WritePosition(float data){
+    qDebug() << "PLC_S7::X_HMI_WritePosition";
+    byte data_array[4];
+    qToBigEndian<float>(data, data_array);
+    WriteData(3, 66, 4, data_array);
+}
+void PLC_S7::Y_HMI_WritePosition(float data){
+    qDebug() << "PLC_S7::Y_HMI_WritePosition";
+    byte data_array[4];
+    qToBigEndian<float>(data, data_array);
+    WriteData(3, 70, 4, data_array);
+}
+void PLC_S7::Z_HMI_WritePosition(float data){
+    qDebug() << "PLC_S7::Z_HMI_WritePosition";
+    byte data_array[4];
+    qToBigEndian<float>(data, data_array);
+    WriteData(3, 74, 4, data_array);
+}
+
 void PLC_S7::setArray(QVector<float> vec) {
     int size = vec.size();
     int len = size*sizeof(float);
@@ -2216,6 +2251,37 @@ void PLC_S7::onLocalOnLine() {
     std::function<void()> func2;
     func2 = std::bind(&PLC_S7::LocalOnLine_2, this);
     this->Push(new PLCCommand(func2));
+    qDebug() << "PLC_S7::onLocalOnLine";
+}
+//测试
+void  PLC_S7::onTest_Button(){
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Test_Button_1, this);
+    this->Push(new PLCCommand(func));
+
+    std::function<void()> func2;
+    func2 = std::bind(&PLC_S7::Test_Button_2, this);
+    this->Push(new PLCCommand(func2));
+    qDebug() << "PLC_S7::onTest_Button";
+}
+//手动X，Y,Z目标值
+void PLC_S7::onX_HMI_WritePosition(float val){
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::X_HMI_WritePosition, this, val);
+    this->Push(new PLCCommand(func));
+    qDebug() << "PLC_S7::onX_HMI_WritePosition";
+}
+void PLC_S7::onY_HMI_WritePosition(float val){
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Y_HMI_WritePosition, this, val);
+    this->Push(new PLCCommand(func));
+    qDebug() << "PLC_S7::onY_HMI_WritePosition";
+}
+void PLC_S7::onZ_HMI_WritePosition(float val){
+    std::function<void()> func;
+    func = std::bind(&PLC_S7::Z_HMI_WritePosition, this, val);
+    this->Push(new PLCCommand(func));
+    qDebug() << "PLC_S7::onZ_HMI_WritePosition";
 }
 //void PLC_S7::setArrayByte(byte* data,int size){
 ////    float value = 0.123f;

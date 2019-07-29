@@ -106,6 +106,11 @@ signals:
     void Type_2_Select();
     void Manul_X_Y_Z(uint16_t);
     void LocalOnLine();
+    void Test_Button();
+    //手动X，Y,Z目标值
+    void X_HMI_WritePosition(float val);
+    void Y_HMI_WritePosition(float val);
+    void Z_HMI_WritePosition(float val);
 public slots:
     /*PLC ip地址链接失败*/
     void onPlcLinkChanged(bool IsOk);
@@ -196,6 +201,12 @@ public slots:
     void on_btnManul_X_Y_Z_clicked();
     //本地远程
     void on_btnLocalOnLine_clicked();
+    //测试
+    void on_btnTest_Button_clicked();
+    //X,Y,Z手动目标值
+    void on_btnX_HMI_WritePosition_clicked();
+    void on_btnY_HMI_WritePosition_clicked();
+    void on_btnZ_HMI_WritePosition_clicked();
 private:    
     Ui::LPCContrlDialog *ui;
     PLCState mPlcState;

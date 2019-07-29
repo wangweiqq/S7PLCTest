@@ -141,6 +141,12 @@ public slots:
     void onManul_X_Y_Z(uint16_t);
     //本地远程
     void onLocalOnLine();
+    //测试
+    void onTest_Button();
+    //手动X，Y,Z目标值
+    void onX_HMI_WritePosition(float val);
+    void onY_HMI_WritePosition(float val);
+    void onZ_HMI_WritePosition(float val);
 private:
     inline void ParsePLC();
     inline int ReadData(int dbNum, int offset, int size, void* val);
@@ -271,6 +277,14 @@ private:
 
     inline void LocalOnLine_1();
     inline void LocalOnLine_2();
+
+    //测试
+    inline void Test_Button_1();
+    inline void Test_Button_2();
+    //手动X，Y,Z值
+    inline void X_HMI_WritePosition(float val);
+    inline void Y_HMI_WritePosition(float val);
+    inline void Z_HMI_WritePosition(float val);
 //    void setABS(float data);
 //    void setJOG(float data);
 

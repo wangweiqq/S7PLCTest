@@ -847,3 +847,50 @@ void LPCContrlDialog::on_btnManul_X_Y_Z_clicked() {
 void LPCContrlDialog::on_btnLocalOnLine_clicked() {
     emit LocalOnLine();
 }
+//测试按钮
+void LPCContrlDialog::on_btnTest_Button_clicked(){
+    emit Test_Button();
+}
+//X,Y,Z手动目标值
+void LPCContrlDialog::on_btnX_HMI_WritePosition_clicked(){
+    QString val = ui->X_HMI_WritePosition->text();
+    if (val.isEmpty()) {
+        QMessageBox::information(this, "信息", "输入值不能为空");
+        return;
+    }
+    bool bl;
+    float fval = val.toFloat(&bl);
+    if (!bl) {
+        QMessageBox::information(this, "信息", "输入值必须为整数");
+        return;
+    }
+    emit X_HMI_WritePosition(fval);
+}
+void LPCContrlDialog::on_btnY_HMI_WritePosition_clicked(){
+    QString val = ui->Y_HMI_WritePosition->text();
+    if (val.isEmpty()) {
+        QMessageBox::information(this, "信息", "输入值不能为空");
+        return;
+    }
+    bool bl;
+    float fval = val.toFloat(&bl);
+    if (!bl) {
+        QMessageBox::information(this, "信息", "输入值必须为整数");
+        return;
+    }
+    emit Y_HMI_WritePosition(fval);
+}
+void LPCContrlDialog::on_btnZ_HMI_WritePosition_clicked(){
+    QString val = ui->Z_HMI_WritePosition->text();
+    if (val.isEmpty()) {
+        QMessageBox::information(this, "信息", "输入值不能为空");
+        return;
+    }
+    bool bl;
+    float fval = val.toFloat(&bl);
+    if (!bl) {
+        QMessageBox::information(this, "信息", "输入值必须为整数");
+        return;
+    }
+    emit Z_HMI_WritePosition(fval);
+}

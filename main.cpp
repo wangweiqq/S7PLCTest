@@ -101,6 +101,10 @@ int main(int argc, char *argv[])
     QObject::connect(&w, SIGNAL(Type_2_Select()), plcS7, SLOT(onType_2_Select()));
     QObject::connect(&w, SIGNAL(Manul_X_Y_Z(uint16_t)), plcS7, SLOT(onManul_X_Y_Z(uint16_t)));
 	QObject::connect(&w, SIGNAL(LocalOnLine()), plcS7, SLOT(onLocalOnLine()));
+    QObject::connect(&w, SIGNAL(Test_Button()), plcS7, SLOT(onTest_Button()));
+    QObject::connect(&w, SIGNAL(X_HMI_WritePosition(float)), plcS7, SLOT(onX_HMI_WritePosition(float)));
+    QObject::connect(&w, SIGNAL(Y_HMI_WritePosition(float)), plcS7, SLOT(onY_HMI_WritePosition(float)));
+    QObject::connect(&w, SIGNAL(Z_HMI_WritePosition(float)), plcS7, SLOT(onZ_HMI_WritePosition(float)));
     plcS7->start();
     return a.exec();
 }

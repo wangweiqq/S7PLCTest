@@ -2011,30 +2011,30 @@ void PLC_S7::onReadRecipe(QString path) {
     int count = ReadRecipe(&xdata, &ydata, &zdata);
     int No = state.Product_Recipe;
     if (count > 0) {
-        ExcelOperator* writeExcel = ExcelOperator::Instance();
-        writeExcel->open(path);
-        QAxObject* pSheet = writeExcel->addSheet(QString("产品工单"));
-        QAxObject* pCell = writeExcel->getCellItem(pSheet, 1, 1);
-        writeExcel->setItemValue(pCell, "NO");
-        pCell = writeExcel->getCellItem(pSheet, 1, 2);
-        writeExcel->setItemValue(pCell, QString("%1").arg(No));
-        pCell = writeExcel->getCellItem(pSheet, 2, 1);
-        writeExcel->setItemValue(pCell, QString("%1").arg("序号"));
-        pCell = writeExcel->getCellItem(pSheet, 2, 2);
-        writeExcel->setItemValue(pCell, QString("%1").arg("X"));
-        pCell = writeExcel->getCellItem(pSheet, 2, 3);
-        writeExcel->setItemValue(pCell, QString("%1").arg("Y"));
-        pCell = writeExcel->getCellItem(pSheet, 2, 4);
-        writeExcel->setItemValue(pCell, QString("%1").arg("Z"));
+        ExcelOperator writeExcel;
+        writeExcel.open(path);
+        QAxObject* pSheet = writeExcel.addSheet(QString("产品工单"));
+        QAxObject* pCell = writeExcel.getCellItem(pSheet, 1, 1);
+        writeExcel.setItemValue(pCell, "NO");
+        pCell = writeExcel.getCellItem(pSheet, 1, 2);
+        writeExcel.setItemValue(pCell, QString("%1").arg(No));
+        pCell = writeExcel.getCellItem(pSheet, 2, 1);
+        writeExcel.setItemValue(pCell, QString("%1").arg("序号"));
+        pCell = writeExcel.getCellItem(pSheet, 2, 2);
+        writeExcel.setItemValue(pCell, QString("%1").arg("X"));
+        pCell = writeExcel.getCellItem(pSheet, 2, 3);
+        writeExcel.setItemValue(pCell, QString("%1").arg("Y"));
+        pCell = writeExcel.getCellItem(pSheet, 2, 4);
+        writeExcel.setItemValue(pCell, QString("%1").arg("Z"));
         for (int i = 0; i < count; ++i) {
-            pCell = writeExcel->getCellItem(pSheet, 3 + i, 1);
-            writeExcel->setItemValue(pCell, QString("%1").arg(i + 1));
-            pCell = writeExcel->getCellItem(pSheet, 3 + i, 2);
-            writeExcel->setItemValue(pCell, QString("%1").arg(xdata[i]));
-            pCell = writeExcel->getCellItem(pSheet, 3 + i, 3);
-            writeExcel->setItemValue(pCell, QString("%1").arg(ydata[i]));
-            pCell = writeExcel->getCellItem(pSheet, 3 + i, 4);
-            writeExcel->setItemValue(pCell, QString("%1").arg(zdata[i]));
+            pCell = writeExcel.getCellItem(pSheet, 3 + i, 1);
+            writeExcel.setItemValue(pCell, QString("%1").arg(i + 1));
+            pCell = writeExcel.getCellItem(pSheet, 3 + i, 2);
+            writeExcel.setItemValue(pCell, QString("%1").arg(xdata[i]));
+            pCell = writeExcel.getCellItem(pSheet, 3 + i, 3);
+            writeExcel.setItemValue(pCell, QString("%1").arg(ydata[i]));
+            pCell = writeExcel.getCellItem(pSheet, 3 + i, 4);
+            writeExcel.setItemValue(pCell, QString("%1").arg(zdata[i]));
         }
         if (xdata) {
             delete[] xdata;
@@ -2045,8 +2045,8 @@ void PLC_S7::onReadRecipe(QString path) {
         if (zdata) {
             delete[] zdata;
         }
-        writeExcel->save();
-        writeExcel->close();
+        writeExcel.save();
+        writeExcel.close();
         QMessageBox::information(NULL, "信息", "保存完毕");
     }
     else {

@@ -1,23 +1,22 @@
 ﻿#pragma execution_character_set("utf-8")
 #include "exceloperator.h"
-#include <objbase.h>
+
 ExcelOperator::ExcelOperator(QObject *parent) : QObject(parent)
   , m_pExcel(NULL)
   , m_pWorksheets(NULL)
   , m_pWorkbook(NULL)
 {
-    CoInitializeEx(NULL, COINIT_MULTITHREADED);
 }
 ExcelOperator::~ExcelOperator()
 {
-    CoUninitialize();
+    //CoUninitialize();
     close();
     qDebug()<<"ExcelOperator 退出";
 }
-ExcelOperator* ExcelOperator::Instance() {
-    static ExcelOperator obj;
-    return &obj;
-}
+//ExcelOperator* ExcelOperator::Instance() {
+//    static ExcelOperator obj;
+//    return &obj;
+//}
 bool ExcelOperator::open(QString path,bool isNew)
 {
     m_strPath = path;

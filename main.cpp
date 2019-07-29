@@ -3,8 +3,10 @@
 #include "plc_s7.h"
 #include "cplcstate.h"
 #include "cconfigmanager.h"
+#include <objbase.h>
 int main(int argc, char *argv[])
 {
+    CoInitializeEx(NULL, COINIT_MULTITHREADED);
     QApplication a(argc, argv);
     qRegisterMetaType<PLCState>("PLCState");
     CConfigManager* config = CConfigManager::getInstance();

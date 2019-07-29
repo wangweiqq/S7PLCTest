@@ -767,30 +767,30 @@ void LPCContrlDialog::on_btnWRecipe_clicked(){
         QMessageBox::information(this, "信息", "请打开Excel文件");
         return;
     }
-    ExcelOperator* readExcel = ExcelOperator::Instance();
-    bool bl = readExcel->open(excelPath, false);
+    ExcelOperator readExcel;
+    bool bl = readExcel.open(excelPath, false);
     if (!bl) {
-        readExcel->close();
+        readExcel.close();
         QMessageBox::information(this, "信息", "请打开Excel文件错误");
         return;
     }
-    QAxObject* pWorkSheet = readExcel->getSheet("产品工单");
+    QAxObject* pWorkSheet = readExcel.getSheet("产品工单");
     if (pWorkSheet == NULL) {
-        readExcel->close();
+        readExcel.close();
         QMessageBox::information(this, "信息", "Excel没有找到[产品工单]表");
         return;
     }
-    int row_count = readExcel->getRowsCount(pWorkSheet);
-    int col_count = readExcel->getColumnsCount(pWorkSheet);
-    QString No = readExcel->getCell(pWorkSheet, 1, 2);
+    int row_count = readExcel.getRowsCount(pWorkSheet);
+    int col_count = readExcel.getColumnsCount(pWorkSheet);
+    QString No = readExcel.getCell(pWorkSheet, 1, 2);
     if (No.isEmpty()) {
-        readExcel->close();
+        readExcel.close();
         QMessageBox::information(this, "信息", "工单号码不正确");
         return;
     }
     int iNo = No.toInt();
     if (!(iNo == 1 || iNo == 2)) {
-        readExcel->close();
+        readExcel.close();
         QMessageBox::information(this, "信息", "工单号码不正确");
         return;
     }
@@ -798,9 +798,9 @@ void LPCContrlDialog::on_btnWRecipe_clicked(){
     QVector<float> yvector;
     QVector<float> zvector;
     for (int i = 3; i < row_count+1; ++i) {
-        QString strX = readExcel->getCell(pWorkSheet, i, 2);
-        QString strY = readExcel->getCell(pWorkSheet, i, 3);
-        QString strZ = readExcel->getCell(pWorkSheet, i, 4);
+        QString strX = readExcel.getCell(pWorkSheet, i, 2);
+        QString strY = readExcel.getCell(pWorkSheet, i, 3);
+        QString strZ = readExcel.getCell(pWorkSheet, i, 4);
         if (strX.isEmpty() || strY.isEmpty() || strZ.isEmpty()) {
             break;
         }
@@ -809,7 +809,7 @@ void LPCContrlDialog::on_btnWRecipe_clicked(){
         zvector.append(strZ.toFloat());
         //qDebug() << "X:" << strX << ",Y:" << strY << ",Z:" << strZ;
     }
-    readExcel->close();
+    readExcel.close();
     if (iNo == 1) {
         if (xvector.count() > 200) {
             QMessageBox::information(this, "信息", "工单号1数量不能超过200条");

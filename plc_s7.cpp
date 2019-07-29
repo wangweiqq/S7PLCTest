@@ -2011,14 +2011,14 @@ void PLC_S7::Test_Button_1(){
     byte rdata = 0;
     ReadData(2, 8, 1, &rdata);
     byte data = rdata | BIT0;
-    WriteData(2, 7, 1, &data);
+    WriteData(2, 8, 1, &data);
 }
 void PLC_S7::Test_Button_2(){
     qDebug() << "PLC_S7::Test_Button_2";
     byte rdata = 0;
     ReadData(2, 8, 1, &rdata);
     byte data = rdata ^ BIT0;
-    WriteData(2, 7, 1, &data);
+    WriteData(2, 8, 1, &data);
 }
 //手动X，Y,Z值
 void PLC_S7::X_HMI_WritePosition(float data){

@@ -1385,30 +1385,30 @@ void PLC_S7::X_ABS3_Manul_2() {
 void PLC_S7::Y_ABS3_Manul_1() {
     qDebug() << "PLC_S7::Y_ABS3_Manul_1";
     byte rdata = 0;
-    ReadData(2, 4, 1, &rdata);
-    byte data = rdata | BIT4;
-    WriteData(2, 4, 1, &data);
+    ReadData(2, 5, 1, &rdata);
+    byte data = rdata | BIT0;
+    WriteData(2, 5, 1, &data);
 }
 void PLC_S7::Y_ABS3_Manul_2() {
     qDebug() << "PLC_S7::Y_ABS3_Manul_2";
     byte rdata = 0;
-    ReadData(2, 4, 1, &rdata);
-    byte data = rdata ^ BIT4;
-    WriteData(2, 4, 1, &data);
+    ReadData(2, 5, 1, &rdata);
+    byte data = rdata ^ BIT0;
+    WriteData(2, 5, 1, &data);
 }
 void PLC_S7::Z_ABS3_Manul_1() {
-    qDebug() << "PLC_S7::Y_ABS3_Manul_1";
+    qDebug() << "PLC_S7::Z_ABS3_Manul_1";
     byte rdata = 0;
-    ReadData(2, 0, 1, &rdata);
-    byte data = rdata | BIT6;
-    WriteData(2, 0, 1, &data);
+    ReadData(2, 1, 1, &rdata);
+    byte data = rdata | BIT2;
+    WriteData(2, 1, 1, &data);
 }
 void PLC_S7::Z_ABS3_Manul_2() {
-    qDebug() << "PLC_S7::Y_ABS3_Manul_1";
+    qDebug() << "PLC_S7::Z_ABS3_Manul_1";
     byte rdata = 0;
-    ReadData(2, 0, 1, &rdata);
-    byte data = rdata ^ BIT6;
-    WriteData(2, 0, 1, &data);
+    ReadData(2, 1, 1, &rdata);
+    byte data = rdata ^ BIT2;
+    WriteData(2, 1, 1, &data);
 }
 
 void PLC_S7::X_ABSLeft_1() {

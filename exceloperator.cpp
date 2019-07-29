@@ -1,11 +1,12 @@
 ﻿#pragma execution_character_set("utf-8")
 #include "exceloperator.h"
-
+#include <objbase.h>
 ExcelOperator::ExcelOperator(QObject *parent) : QObject(parent)
   , m_pExcel(NULL)
   , m_pWorksheets(NULL)
   , m_pWorkbook(NULL)
 {
+	CoInitializeEx(NULL, COINIT_MULTITHREADED);
 }
 ExcelOperator::~ExcelOperator()
 {

@@ -6,7 +6,7 @@
 #include <objbase.h>
 int main(int argc, char *argv[])
 {
-    CoInitializeEx(NULL, COINIT_MULTITHREADED);
+    
     QApplication a(argc, argv);
     qRegisterMetaType<PLCState>("PLCState");
     CConfigManager* config = CConfigManager::getInstance();
